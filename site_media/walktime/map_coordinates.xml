@@ -1,0 +1,795 @@
+<?xml version="1.0"?>
+<Locations>
+
+ <Location>
+  <Name>Afro House</Name>
+  <Lat>37.868391</Lat>
+  <Lon>-122.249916</Lon>
+ </Location>
+ <Location>
+  <Name>Alumni House</Name>
+  <Lat>37.869655</Lat>
+  <Lon>-122.261096</Lon>
+ </Location>
+ <Location>
+  <Name>Andres Castro Arms</Name>
+  <Lat>37.868671</Lat>
+  <Lon>-122.250044</Lon>
+ </Location>
+ <Location>
+  <Name>Anthony Hall</Name>
+  <Lat>37.870690000000003</Lat>
+  <Lon>-122.25819</Lon>
+  <Alias>Graduate Assembly</Alias>
+ </Location>
+ <Location>
+  <Name>Architects &#38; Engineers (A&#38;E)</Name>
+  <Lat>37.870162</Lat>
+  <Lon>-122.258756</Lon>
+ </Location>
+ <Location>
+  <Name>Athletic Ticket Office</Name>
+  <Lat>37.868756</Lat>
+  <Lon>-122.265869</Lon>
+ </Location>
+ <Location>
+  <Name>Bancroft Library</Name>
+  <Lat>37.872272</Lat>
+  <Lon>-122.258773</Lon>
+ </Location>
+ <Location>
+  <Name>Bancroft Studio (2401 Bancroft)</Name>
+  <Lat>37.868662</Lat>
+  <Lon>-122.261202</Lon>
+ </Location>
+ <Location>
+  <Name>Banway Building (2111 Bancroft Way)</Name>
+  <Lat>37.86788</Lat>
+  <Lon>-122.26687</Lon>
+ </Location>
+ <Location>
+  <Name>Barker Hall</Name>
+  <Lat>37.873950000000001</Lat>
+  <Lon>-122.26549</Lon>
+ </Location>
+ <Location>
+  <Name>Barrows Hall</Name>
+  <Lat>37.870060000000002</Lat>
+  <Lon>-122.25791</Lon>
+ </Location>
+ <Location>
+  <Name>Bechtel Engineering Center</Name>
+  <Lat>37.874040000000001</Lat>
+  <Lon>-122.25836</Lon>
+ </Location>
+ <Location>
+  <Name>Berkeley Art Museum</Name>
+  <Lat>37.86871000000001</Lat>
+  <Lon>-122.255667</Lon>
+ </Location>
+  <Location>
+  <Name>Berkeley Wireless Research Center</Name>
+  <Lat>37.869442</Lat>
+  <Lon>-122.267296</Lon>
+ </Location> 
+  <Location>
+  <Name>Birge Hall</Name>
+  <Lat>37.872190000000003</Lat>
+  <Lon>-122.25724</Lon>
+ </Location>
+ <Location>
+  <Name>Boalt Hall, School of Law</Name>
+  <Lat>37.86992</Lat>
+  <Lon>-122.25341</Lon>
+ </Location>
+  <Location>
+  <Name>Botanical Garden Conference Center</Name>
+  <Lat>37.87579</Lat>
+  <Lon>-122.238654</Lon>
+ </Location>
+  <Location>
+  <Name>Blum Hall</Name>
+  <Lat>37.874954</Lat>
+  <Lon>-122.259143</Lon>
+ </Location>
+  <Location>
+  <Name>Bowles Hall</Name>
+  <Lat>37.873357</Lat>
+  <Lon>-122.253168</Lon>
+ </Location>
+  <Location>
+  <Name>California Hall</Name>
+  <Lat>37.87189</Lat>
+  <Lon>-122.26038</Lon>
+ </Location>
+ <Location>
+  <Name>Calvin Lab</Name>
+  <Lat>37.870989999999999</Lat>
+  <Lon>-122.25393</Lon>
+ </Location>
+  <Location>
+  <Name>Campanile (Sather Tower)</Name>
+  <Lat>37.872332</Lat>
+  <Lon>-122.257964</Lon>
+ </Location>
+ <Location>
+  <Name>Campbell Hall</Name>
+  <Lat>37.872979999999998</Lat>
+  <Lon>-122.25705000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Casa Zimbabwe</Name>
+  <Lat>37.875954</Lat>
+  <Lon>-122.261202</Lon>
+ </Location>
+ <Location>
+  <Name>Center for Latin American Studies</Name>
+  <Lat>37.869281</Lat>
+  <Lon>-122.255816</Lon>
+ </Location>
+ <Location>
+  <Name>César E. Chavez Student Center</Name>
+  <Lat>37.86974</Lat>
+  <Lon>-122.26017</Lon>
+ </Location>
+ <Location>
+  <Name>Child Development Center</Name>
+  <Lat>37.865613</Lat>
+  <Lon>-122.262211</Lon>
+ </Location>
+  <Location>
+  <Name>Clark Kerr Campus Center</Name>
+  <Lat>37.863576</Lat>
+  <Lon>-122.24983</Lon>
+ </Location>
+ <Location>
+  <Name>Cleary Hall</Name>
+  <Lat>37.866692</Lat>
+  <Lon>-122.25982</Lon>
+ </Location>
+ <Location>
+  <Name>Cloyne Court Co-op</Name>
+  <Lat>37.876149</Lat>
+  <Lon>-122.257994</Lon>
+ </Location>
+ <Location>
+  <Name>CNMAT (1750 Arch St.)</Name>
+  <Lat>37.876606</Lat>
+  <Lon>-122.26455</Lon>
+ </Location>
+ <Location>
+  <Name>The Convent</Name>
+  <Lat>37.868146</Lat>
+  <Lon>-122.27854</Lon>
+ </Location>
+ <Location>
+  <Name>Cory Hall</Name>
+  <Lat>37.875050000000002</Lat>
+  <Lon>-122.25752</Lon>
+ </Location>
+ <Location>
+  <Name>Davis Hall</Name>
+  <Lat>37.874519999999997</Lat>
+  <Lon>-122.25829</Lon>
+ </Location>
+ <Location>
+  <Name>Davis House</Name>
+  <Lat>37.869535</Lat>
+  <Lon>-122.250581</Lon>
+ </Location>
+ <Location>
+  <Name>Doe Addition</Name>
+  <Lat>37.872312999999998</Lat>
+  <Lon>-122.258821</Lon>
+ </Location>
+ <Location>
+  <Name>Doe Library</Name>
+  <Lat>37.872439999999997</Lat>
+  <Lon>-122.25955999999999</Lon>
+ </Location>
+ <Location>
+  <Name>Donner Laboratory</Name>
+  <Lat>37.87463</Lat>
+  <Lon>-122.25649</Lon>
+ </Location>
+ <Location>
+  <Name>Durham Studio Theater (Dwinelle)</Name>
+  <Lat>37.870579999999997</Lat>
+  <Lon>-122.26040999999999</Lon>
+ </Location> 
+ <Location>
+  <Name>Durant Hall</Name>
+  <Lat>37.871259999999999</Lat>
+  <Lon>-122.26013</Lon>
+ </Location>
+ <Location>
+  <Name>Dwinelle Annex</Name>
+  <Lat>37.870350000000002</Lat>
+  <Lon>-122.26123</Lon>
+ </Location>
+ <Location>
+  <Name>Dwinelle Hall</Name>
+  <Lat>37.870579999999997</Lat>
+  <Lon>-122.26040999999999</Lon>
+ </Location>
+ <Location>
+  <Name>Edwards Track Stadium</Name>
+  <Lat>37.869613999999997</Lat>
+  <Lon>-122.26479399999999</Lon>
+ </Location>
+  <Location>
+  <Name>Eshleman Hall</Name>
+  <Lat>37.868795</Lat>
+  <Lon>-122.260104</Lon>
+ </Location>
+ <Location>
+  <Name>Etcheverry Hall</Name>
+  <Lat>37.875700000000002</Lat>
+  <Lon>-122.25924000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Euclid Hall</Name>
+  <Lat>37.876547</Lat>
+  <Lon>-122.260065</Lon>
+ </Location>
+ <Location>
+  <Name>Evans Hall</Name>
+  <Lat>37.873629999999999</Lat>
+  <Lon>-122.25783</Lon>
+ </Location>
+ <Location>
+  <Name>Faculty Club</Name>
+  <Lat>37.871916</Lat>
+  <Lon>-122.255876</Lon>
+ </Location>
+ <Location>
+  <Name>Fenwick Weaver's Village</Name>
+  <Lat>37.864961</Lat>
+  <Lon>-122.260365</Lon>
+ </Location>
+ <Location>
+  <Name>Foothill Student Housing</Name>
+  <Lat>37.875429</Lat>
+  <Lon>-122.255763</Lon>
+ </Location>
+ <Location>
+  <Name>Fox Cottage (2350 Bowditch St.)</Name>
+  <Lat>37.86788</Lat>
+  <Lon>-122.256771</Lon>
+ </Location> 
+ <Location>
+  <Name>Genetics &#38; Plant Biology Building</Name>
+  <Lat>37.873429999999999</Lat>
+  <Lon>-122.26473</Lon>
+ </Location>
+ <Location>
+  <Name>Giannini Hall</Name>
+  <Lat>37.873570000000001</Lat>
+  <Lon>-122.26233999999999</Lon>
+ </Location>
+ <Location>
+  <Name>Gilman Hall</Name>
+  <Lat>37.87265</Lat>
+  <Lon>-122.25629000000001</Lon>
+ </Location>
+  <Location>
+  <Name>Girton Hall</Name>
+  <Lat>37.87239</Lat>
+  <Lon>-122.254165</Lon>
+ </Location>
+  <Location>
+  <Name>Goldman School of Public Policy</Name>
+  <Lat>37.875638</Lat>
+  <Lon>-122.25785</Lon>
+ </Location>
+ <Location>
+  <Name>Haas School of Business</Name>
+  <Lat>37.871690000000001</Lat>
+  <Lon>-122.25384</Lon>
+ </Location>
+ <Location>
+  <Name>Haas Pavilion</Name>
+  <Lat>37.869399999999999</Lat>
+  <Lon>-122.26222</Lon>
+ </Location>
+ <Location>
+  <Name>Hargrove Music Library</Name>
+  <Lat>37.870440000000002</Lat>
+  <Lon>-122.2561</Lon>
+ </Location>
+ <Location>
+  <Name>Haviland Hall</Name>
+  <Lat>37.873739999999998</Lat>
+  <Lon>-122.26105</Lon>
+ </Location>
+ <Location>
+  <Name>Hearst Field Annex</Name>
+  <Lat>37.86947</Lat>
+  <Lon>-122.25817000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Hearst Greek Theatre</Name>
+  <Lat>37.873594</Lat>
+  <Lon>-122.254338</Lon>
+ </Location> 
+ <Location>
+  <Name>Hearst Gym</Name>
+  <Lat>37.86956</Lat>
+  <Lon>-122.25687000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Hearst Memorial Mining Building</Name>
+  <Lat>37.874459999999999</Lat>
+  <Lon>-122.25727000000001</Lon>
+ </Location>
+  <Location>
+  <Name>Hearst Museum of Anthropology</Name>
+  <Lat>37.869125</Lat>
+  <Lon>-122.256971</Lon>
+ </Location>
+ <Location>
+  <Name>Hertz Concert Hall</Name>
+  <Lat>37.871099999999998</Lat>
+  <Lon>-122.25566999999999</Lon>
+ </Location>
+ <Location>
+  <Name>Hesse Hall</Name>
+  <Lat>37.874319999999997</Lat>
+  <Lon>-122.25936</Lon>
+ </Location>
+ <Location>
+  <Name>Hildebrand Hall</Name>
+  <Lat>37.872610000000002</Lat>
+  <Lon>-122.2557</Lon>
+ </Location>
+ <Location>
+  <Name>Hilgard Hall</Name>
+  <Lat>37.873164</Lat>
+  <Lon>-122.263405</Lon>
+ </Location>
+ <Location>
+  <Name>Hillegass-Parker House</Name>
+  <Lat>37.863775</Lat>
+  <Lon>-122.256246</Lon>
+ </Location>
+ <Location>
+  <Name>Hoyt Hall</Name>
+  <Lat>37.876378</Lat>
+  <Lon>-122.259743</Lon>
+ </Location>
+ <Location>
+  <Name>Ida L. Jackson Graduate House</Name>
+  <Lat>37.868103</Lat>
+  <Lon>-122.254186</Lon>
+ </Location>
+ <Location>
+  <Name>Institute for Research on Labor and Employment</Name>
+  <Lat>37.867215999999999</Lat>
+  <Lon>-122.25838</Lon>
+ </Location>
+ <Location>
+  <Name>International House</Name>
+  <Lat>37.869750000000003</Lat>
+  <Lon>-122.25145000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Ishi Court (Dwinelle Hall)</Name>
+  <Lat>37.870579999999997</Lat>
+  <Lon>-122.26040999999999</Lon>
+ </Location> 
+ <Location>
+  <Name>Kidd Hall</Name>
+  <Lat>37.876835</Lat>
+  <Lon>-122.259314</Lon>
+ </Location>
+ <Location>
+  <Name>Kingman Hall</Name>
+  <Lat>37.877089</Lat>
+  <Lon>-122.257404</Lon>
+ </Location>
+ <Location>
+  <Name>Koshland Hall</Name>
+  <Lat>37.873939999999997</Lat>
+  <Lon>-122.26487</Lon>
+ </Location>
+ <Location>
+  <Name>Kroeber Hall</Name>
+  <Lat>37.869880000000002</Lat>
+  <Lon>-122.2552</Lon>
+ </Location>
+ <Location>
+  <Name>Latimer Hall</Name>
+  <Lat>37.873130000000003</Lat>
+  <Lon>-122.25592</Lon>
+ </Location>
+ <Location>
+  <Name>Lawrence Hall of Science</Name>
+  <Lat>37.87926000000003</Lat>
+  <Lon>-122.246677</Lon>
+ </Location>
+ <Location>
+  <Name>LeConte Hall</Name>
+  <Lat>37.872489999999999</Lat>
+  <Lon>-122.25688</Lon>
+ </Location>
+ <Location>
+  <Name>LeConte Annex</Name>
+  <Lat>37.872689999999999</Lat>
+  <Lon>-122.25748</Lon>
+ </Location>
+ <Location>
+  <Name>Lewis Hall</Name>
+  <Lat>37.873060000000002</Lat>
+  <Lon>-122.25521999999999</Lon>
+ </Location>
+   <Location>
+  <Name>Li Ka Shing Center</Name>
+  <Lat>37.873464</Lat>
+  <Lon>-122.26539</Lon>
+ </Location>
+ <Location>
+  <Name>Life Sciences Addition</Name>
+  <Lat>37.871400000000001</Lat>
+  <Lon>-122.26324</Lon>
+ </Location>
+  <Location>
+  <Name>Lothlorien Hall</Name>
+  <Lat>37.867858</Lat>
+  <Lon>-122.249594</Lon>
+ </Location>
+  <Location>
+  <Name>Manville Hall</Name>
+  <Lat>37.865639</Lat>
+  <Lon>-122.267039</Lon>
+ </Location>
+ <Location>
+  <Name>Martin Luther King Jr. Student Union</Name>
+  <Lat>37.869137</Lat>
+  <Lon>-122.259614</Lon>
+ </Location> 
+ <Location>
+  <Name>McCone Hall</Name>
+  <Lat>37.874110000000002</Lat>
+  <Lon>-122.25964999999999</Lon>
+ </Location>
+ <Location>
+  <Name>McEnerney Hall (1750 Arch St)</Name>
+  <Lat>37.87653999999999</Lat>
+  <Lon>-122.26468</Lon>
+ </Location> 
+ <Location>
+  <Name>McLaughlin Hall</Name>
+  <Lat>37.873829</Lat>
+  <Lon>-122.259051</Lon>
+ </Location>
+  <Location>
+  <Name>Memorial Stadium</Name>
+  <Lat>37.870706000000002</Lat>
+  <Lon>-122.25049700000001</Lon>
+ </Location>
+  <Location>
+  <Name>Minor Hall</Name>
+  <Lat>37.871319999999997</Lat>
+  <Lon>-122.255</Lon>
+ </Location>
+ <Location>
+  <Name>Moffitt Library</Name>
+  <Lat>37.872549999999997</Lat>
+  <Lon>-122.26081000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Morgan Hall</Name>
+  <Lat>37.87332</Lat>
+  <Lon>-122.26425</Lon>
+ </Location>
+ <Location>
+  <Name>Morrison Hall</Name>
+  <Lat>37.870869999999996</Lat>
+  <Lon>-122.25644</Lon>
+ </Location>
+ <Location>
+  <Name>Moses Hall</Name>
+  <Lat>37.870989999999999</Lat>
+  <Lon>-122.25799000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Mulford Hall</Name>
+  <Lat>37.872639999999997</Lat>
+  <Lon>-122.26449</Lon>
+ </Location>
+  <Location>
+ <Name>Naval Architecture Building</Name>
+  <Lat>37.875088</Lat>
+  <Lon>-122.258741</Lon>
+ </Location>
+ <Location>
+  <Name>North Gate Hall</Name>
+  <Lat>37.874870000000001</Lat>
+  <Lon>-122.25984</Lon>
+ </Location>
+ <Location>
+  <Name>Northside Co-op Apartments</Name>
+  <Lat>37.876801</Lat>
+  <Lon>-122.259657</Lon>
+ </Location>
+ <Location>
+  <Name>O'Brien Hall</Name>
+  <Lat>37.874400000000001</Lat>
+  <Lon>-122.25906000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Oscar Wilde House</Name>
+  <Lat>37.867417</Lat>
+  <Lon>-122.250988</Lon>
+ </Location>
+ <Location>
+  <Name>Pacific Film Archive Theater</Name>
+  <Lat>37.869036</Lat>
+  <Lon>-122.257529</Lon>
+ </Location>
+ <Location>
+  <Name>Pimental Hall</Name>
+  <Lat>37.87341</Lat>
+  <Lon>-122.25602000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Public Affairs</Name>
+  <Lat>37.867410000000001</Lat>
+  <Lon>-122.265581</Lon>
+ </Location>
+ <Location>
+  <Name>Recreational Sports Facility</Name>
+  <Lat>37.868549999999999</Lat>
+  <Lon>-122.26276</Lon>
+ </Location>
+ <Location>
+  <Name>Residential &#38; Student Services Bldg.</Name>
+  <Lat>37.866884</Lat>
+  <Lon>-122.255849</Lon>
+ </Location> 
+ <Location>
+  <Name>Ridge House</Name>
+  <Lat>37.87592</Lat>
+  <Lon>-122.261331</Lon>
+ </Location>
+ <Location>
+  <Name>Rochdale Apartments</Name>
+  <Lat>37.865503</Lat>
+  <Lon>-122.259593</Lon>
+ </Location>
+ <Location>
+  <Name>Sather Gate</Name>
+  <Lat>37.870294</Lat>
+  <Lon>-122.259615</Lon>
+ </Location>
+ <Location>
+  <Name>Senior Hall</Name>
+  <Lat>37.871946</Lat>
+  <Lon>-122.255533</Lon>
+ </Location>
+ <Location>
+  <Name>Sherman Hall</Name>
+  <Lat>37.869755</Lat>
+  <Lon>-122.250581</Lon>
+ </Location>
+ <Location>
+  <Name>Simon Hall</Name>
+  <Lat>37.86985</Lat>
+  <Lon>-122.25266000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Soda Hall</Name>
+  <Lat>37.87567</Lat>
+  <Lon>-122.25870999999999</Lon>
+ </Location>
+ <Location>
+  <Name>South Hall</Name>
+  <Lat>37.87133</Lat>
+  <Lon>-122.25851</Lon>
+ </Location>
+ <Location>
+  <Name>South Hall Annex</Name>
+  <Lat>37.871499999999997</Lat>
+  <Lon>-122.25857000000001</Lon>
+ </Location>
+  <Location>
+  <Name>Spieker Aquatics Complex </Name>
+  <Lat>37.868911</Lat>
+  <Lon>-122.261998</Lon>
+ </Location>
+ <Location>
+  <Name>Sproul Hall</Name>
+  <Lat>37.869599999999998</Lat>
+  <Lon>-122.25878</Lon>
+ </Location>
+ <Location>
+  <Name>Stanley Hall</Name>
+  <Lat>37.874020000000002</Lat>
+  <Lon>-122.25613</Lon>
+ </Location>
+ <Location>
+  <Name>Starr East Asian Library</Name>
+  <Lat>37.873570000000001</Lat>
+  <Lon>-122.26034</Lon>
+ </Location>
+ <Location>
+  <Name>Stebbins Hall</Name>
+  <Lat>37.876462</Lat>
+  <Lon>-122.259271</Lon>
+ </Location>
+ <Location>
+  <Name>Stephens Hall</Name>
+  <Lat>37.87124</Lat>
+  <Lon>-122.25761</Lon>
+ </Location>
+ <Location>
+  <Name>Stern Hall</Name>
+  <Lat>37.875066</Lat>
+  <Lon>-122.255614</Lon>
+ </Location> 
+  <Location>
+  <Name>Sutardja Dai Hall</Name>
+  <Lat>37.875079</Lat>
+  <Lon>-122.258264</Lon>
+ </Location>
+ <Location>
+  <Name>Tan Hall</Name>
+  <Lat>37.873100000000001</Lat>
+  <Lon>-122.25642000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Tang Center, University Health Services</Name>
+  <Lat>37.867835000000002</Lat>
+  <Lon>-122.263843</Lon>
+ </Location>
+ <Location>
+  <Name>Tolman Hall</Name>
+  <Lat>37.874110000000002</Lat>
+  <Lon>-122.26392</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Cheney</Name>
+  <Lat>37.868086</Lat>
+  <Lon>-122.255602</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Christian</Name>
+  <Lat>37.868171</Lat>
+  <Lon>-122.255044</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Deutsch</Name>
+  <Lat>37.867621</Lat>
+  <Lon>-122.255709</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Freeborn</Name>
+  <Lat>37.86818</Lat>
+  <Lon>-122.254647</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Putnam</Name>
+  <Lat>37.867663</Lat>
+  <Lon>-122.254668</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 1 Residence Hall - Slottman</Name>
+  <Lat>37.867544</Lat>
+  <Lon>-122.255237</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Cunningham</Name>
+  <Lat>37.866359</Lat>
+  <Lon>-122.255259</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Davidson</Name>
+  <Lat>37.866418</Lat>
+  <Lon>-122.254282</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Ehrman</Name>
+  <Lat>37.86585</Lat>
+  <Lon>-122.255344</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Griffiths</Name>
+  <Lat>37.86591</Lat>
+  <Lon>-122.254196</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Towle</Name>
+  <Lat>37.866452</Lat>
+  <Lon>-122.254679</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 2 Residence Hall - Wada</Name>
+  <Lat>37.865783</Lat>
+  <Lon>-122.254862</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 3 Residence Hall - Ida Sproul</Name>
+  <Lat>37.867011</Lat>
+  <Lon>-122.260945</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 3 Residence Hall - Norton</Name>
+  <Lat>37.867426</Lat>
+  <Lon>-122.260805</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 3 Residence Hall - Priestly</Name>
+  <Lat>37.866994</Lat>
+  <Lon>-122.259947</Lon>
+ </Location>
+ <Location>
+  <Name>Unit 3 Residence Hall - Spens-Black</Name>
+  <Lat>37.867477</Lat>
+  <Lon>-122.259958</Lon>
+ </Location>
+ <Location>
+  <Name>University Hall</Name>
+  <Lat>37.87189</Lat>
+  <Lon>-122.26635</Lon>
+ </Location>
+ <Location>
+  <Name>University House</Name>
+  <Lat>37.874363</Lat>
+  <Lon>-122.262485</Lon>
+ </Location>
+ <Location>
+  <Name>University Press (2120 Berkeley Way)</Name>
+  <Lat>37.873092</Lat>
+  <Lon>-122.267672</Lon>
+ </Location> 
+ <Location>
+  <Name>Valley Life Sciences Building</Name>
+  <Lat>37.871479999999998</Lat>
+  <Lon>-122.26211000000001</Lon>
+ </Location>
+ <Location>
+  <Name>Warren Hall</Name>
+  <Lat>37.874562</Lat>
+  <Lon>-122.266911</Lon>
+ </Location>
+ <Location>
+  <Name>Wellman Hall</Name>
+  <Lat>37.873483</Lat>
+  <Lon>-122.262872</Lon>
+ </Location>
+ <Location>
+  <Name>Wheeler Auditorium</Name>
+  <Lat>37.871290000000002</Lat>
+  <Lon>-122.25914</Lon>
+ </Location>
+ <Location>
+  <Name>Wheeler Hall</Name>
+  <Lat>37.871290000000002</Lat>
+  <Lon>-122.25914</Lon>
+ </Location> 
+ <Location>
+  <Name>Wolf House</Name>
+  <Lat>37.868332</Lat>
+  <Lon>-122.252834</Lon>
+ </Location>
+ <Location>
+  <Name>Women's Faculty Club</Name>
+  <Lat>37.872027</Lat>
+  <Lon>-122.254878</Lon>
+ </Location>
+ <Location>
+  <Name>Wurster Hall</Name>
+  <Lat>37.8705</Lat>
+  <Lon>-122.25488</Lon>
+ </Location>
+ <Location>
+  <Name>Zellerbach Hall</Name>
+  <Lat>37.869109999999999</Lat>
+  <Lon>-122.26078</Lon>
+ </Location>
+  <Location>
+  <Name>Zellerbach Playhouse</Name>
+  <Lat>37.869427</Lat>
+  <Lon>-122.261322</Lon>
+ </Location>
+</Locations>

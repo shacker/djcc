@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load verbatim %}
+
+{% block title %}Library{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{STATIC_URL}}fileuploader/fileuploader.css" />    
+{% endblock extrahead %}
+
+{% block content %}
+
+<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" >
+    
+    <div id="file-uploader">       
+        <noscript>          
+            <p>Please enable JavaScript to use file uploader.</p>
+        </noscript>         
+    </div>
+    
+    <div id="status">
+        
+    </div>
+
+</form>    
+
+{% endblock content %}
+
+
+{% block extrafoot %}
+    <script src="{{STATIC_URL}}fileuploader/fileuploader.js" type="text/javascript" charset="utf-8"></script>
+    
+<script>
+var uploader = new qq.FileUploader( {
+    action: "{% url library_ajax_upload %}",
+    element: $('#file-uploader')[0],
+    multiple: true,
+    onComplete: function( id, filename, responseJSON ) {
+      if( responseJSON.success )
+        $('#status').html('<p>Success! <a href="{% url library_listfiles user.username %}">Go to your files</a>.</p>');
+      else
+        alert( "upload failed!" ) ;
+    },
+    onAllComplete: function( uploads ) {
+      // uploads is an array of maps
+      // the maps look like this: { file: FileObject, response: JSONServerResponse }
+      // alert( "All complete!" ) ;
+      // $('#status').html('<p>All uploads complete.</p>');
+    },
+    params: {
+      'csrf_token': '{{ csrf_token }}',
+      'csrf_name': 'csrfmiddlewaretoken',
+      'csrf_xname': 'X-CSRFToken',
+    },
+} ) ;
+</script>    
+{% endblock extrafoot %}
+    

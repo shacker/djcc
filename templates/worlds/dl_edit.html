@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery/autocomplete-1.1.3/jquery.autocomplete.js"></script>
+    <link rel="stylesheet" href="{{STATIC_URL}}js/jquery/autocomplete-1.1.3/styles.css">
+{% endblock extrahead %}
+
+{% block content %}
+
+{% if dlist %}
+    <h2>Dynamic List: {{dlist}}</h2>
+{% else %}
+    <h2>Create Dynamic List</h2>
+{% endif %}    
+
+{% if dlist.description %}
+    <p>{{dlist.description}}</p>
+{% endif %}
+
+<p>This list currently includes {{dlist.get_members.count}} members.</p>
+
+<form action="" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <p><input type="submit" value="submit"></p>
+</form>
+
+<script>
+    $(document).ready(function () {
+        var options, a;
+        jQuery(function(){
+          options = { 
+            serviceUrl:'{% url json_users %}',
+            delimiter: /(,|;)\s*/
+        };
+          a = $('#id_addl_members').autocomplete(options);
+        });
+    });
+
+</script>
+{% endblock %}

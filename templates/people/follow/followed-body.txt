@@ -1,0 +1,12 @@
+Hi {{followee.user.first_name}} -
+
+{{follower}} ({{follower.user.username}}) thinks your profile is pretty neat, and is now following you. 
+
+Check out {{follower}}'s profile (and follow them back if you like):
+http://{{site}}{% url people_profile_detail follower.user.username %}
+
+------
+
+Want to stop receiving these updates? 
+Change the email notification preferences in your profile preferences:
+http://{{site}}{% url people_profile_edit %}

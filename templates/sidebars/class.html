@@ -1,0 +1,24 @@
+{% comment %}
+    Sidebars (like this) with URLs that take specific args cannot be included generically!
+    They must only appear on views that send in those args.    
+{% endcomment %}
+<div id="sidebar">
+
+    <h2>More</h2>
+    <ul class="links">
+        <li><a href="{% url offering_detail offering.id %}">Course Home</a></li>
+        <li><a href="{% url offering_schedule offering.id %}">Course Schedule</a></li>
+        <li><a href="{% url offering_announcements offering.id %}">Announcements</a></li>
+        <li><a href="{% url offering_contact offering.id %}">Contact</a></li>
+        <li><a href="{% url offering_policies offering.id %}">Grading and Policies</a></li>
+        <li><a href="{% url offering_assignments offering.id %}">Assignments</a></li>
+        <li><a href="{% url offering_participants offering.id %}">Participants</a></li>
+        <li><a href="{% url offering_library offering.id %}">Library</a></li>
+        <li><a href="{% url offering_public offering.id %}">Public View</a></li>
+        <li><a href="{% url offering_materials offering.id %}">Class Materials</a></li>
+    </ul>
+
+    <h2>More</h2>
+    {% include "sidebars/course_extra.html" %}
+
+</div>

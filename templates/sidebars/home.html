@@ -1,0 +1,17 @@
+<div id="sidebar">
+
+    <h2>News</h2>
+    <ul class="links">
+        {% for s in stories %}
+            <li><a href="{% url news_story_detail s.id %}">{{s}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Something</h2>
+    <ul class="news">
+        <li><span class="newsdate">2011-09-29</span> Quisque dictum aliquet scelerisque. Proin imperdiet nibh eu nisl consequat gravida vulputate quam rhoncus. In hac habitasse platea dictumst.</li>
+        <li><span class="newsdate">2011-09-14</span> Aenean laoreet ornare nulla in ornare. Nam dignissim porttitor cursus.</li>
+        <li><span class="newsdate">2011-08-26</span> Curabitur id odio tortor, a euismod sem. Sed fermentum, est ut aliquet fermentum, mauris risus pulvinar tellus.</li>
+    </ul>
+
+</div>

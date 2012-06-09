@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Contacter{% endblock %}
+
+{% block content %}
+
+<h1>Grading and Policies</h1>
+
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+
+<h3>Grading</h3>
+{% if offering.grading %}
+    {{offering.grading|linebreaks}}
+{% else %}    
+    <p>None specified</p>
+{% endif %}
+
+
+<h3>Policies</h3>
+
+{% if offering.policies %}
+    {{offering.policies|linebreaks}}
+{% else %}    
+    <p>None specified</p>
+{% endif %}
+
+{% endblock content %}

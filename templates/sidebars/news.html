@@ -1,0 +1,10 @@
+<div id="sidebar">
+
+    <h2>Recent News</h2>
+    <ul class="links">
+        {% for s in recent_news %}
+            <li><a href="{% url news_story_detail s.id %}">{{s}}</a></li>
+        {% endfor %}
+    </ul>
+    
+</div>

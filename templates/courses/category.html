@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block extra_head %} {% endblock extra_head %}    
+
+
+{% block content %}
+
+<h1>Majors In "{{category}}"</h1>
+
+
+<ul>
+{% for m in category.major_set.all  %}
+    <li><a href="{% url program_major m.slug %}">{{m}}</a></li>    
+{% endfor %}
+</ul>
+
+{% endblock content %} 
+

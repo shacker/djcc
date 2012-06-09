@@ -1,0 +1,116 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Applicants", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Students", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Staff", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Faculty", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Lecturers", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Visiting Scholars", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Web Team", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Speakers", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Alumni", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Visiting Lecturers", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Other", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "Faculty Emeritus", 
+            "permissions": []
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "auth.group", 
+        "fields": {
+            "name": "IT Staff", 
+            "permissions": [
+                263, 
+                264, 
+                265, 
+                230, 
+                231, 
+                232, 
+                227, 
+                228, 
+                229
+            ]
+        }
+    }
+]

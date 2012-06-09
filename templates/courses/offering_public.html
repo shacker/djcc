@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Participants{% endblock %}
+
+{% block content %}
+
+<h1>Public View</h1>
+
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+
+<p class="alert">
+    Not clear how this will differ from logged-in display - 
+    we can possibly do this in the same view and template as details view, but need more info.
+</p>
+
+
+{% endblock content %}

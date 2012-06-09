@@ -1,0 +1,170 @@
+[
+    {
+        "pk": 1, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "application/msword", 
+            "extension": "doc"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "application/pdf", 
+            "extension": "pdf"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "application/vnd.ms-excel", 
+            "extension": "xls"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "image/gif", 
+            "extension": "gif"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "image/jpeg", 
+            "extension": "jpeg"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "image/jpeg", 
+            "extension": "jpg"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "image/png", 
+            "extension": "png"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "text/html", 
+            "extension": "html"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "text/html", 
+            "extension": "htm"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "text/plain", 
+            "extension": "txt"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "text/plain", 
+            "extension": "text"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/mp4", 
+            "extension": "mp4"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/mp4", 
+            "extension": "mp4v"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/mp4", 
+            "extension": "mpg4"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/mpeg", 
+            "extension": "mpeg"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/mpeg", 
+            "extension": "mpg"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/ogg", 
+            "extension": "ogg"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/quicktime", 
+            "extension": "mov"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/x-flv", 
+            "extension": "flv"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/x-m4v", 
+            "extension": "m4v"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "library.mimetype", 
+        "fields": {
+            "mimetype": "video/x-ms-wmv", 
+            "extension": "wmv"
+        }
+    }
+]

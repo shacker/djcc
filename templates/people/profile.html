@@ -1,0 +1,29 @@
+{% extends 'people/base.html' %}
+
+{% block content %}
+<h1>Greetings, {{ profile }}</h1>
+<p>
+    This is your personal page that lists all the information related to you.  
+    From here you can view and update your databases.
+</p>
+<ul>
+    <li><a href="{% url people_profile_edit %}">Update your profile</a></li>
+    <li><a href="{% url strong_passwords.views.password_change %}">Change your password</a></li>
+</ul>
+
+<h2>Stories</h2>
+
+<h2>Reservations</h2>
+    {% for sched in profile.schedules.all %}
+    <h3>{{sched}}</h3>
+    <ul>
+        {% for res in profile.reservation_set.all %}
+        <li><a href="{% url resources_schedule_detail sched.id %}{{ res.get_date_query_string }}">{{res}}</a> 
+            <!-- just a thought a href="{% url resources_reservation_edit sched.id,res.id %}?height=400&amp;width=600" class="thickbox">edit</a--></li>
+        {% empty %}
+        <li>Nothing is reserved at the moment.</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+{% endblock %}

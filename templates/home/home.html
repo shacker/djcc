@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{{STATIC_URL}}css/welcome.css">
+{% endblock extrahead %}
+
+{% block content %}
+    
+
+<!-- Begin CalCentral Customized -->
+{% if user.is_authenticated %}
+    <div id="welcome_authenticated">
+        <div class="welcome-block gearbox">
+              <img src="{{STATIC_URL}}images/welcome/calcentral_welcome.png" width="100" alt="" />
+            <p>
+              You are part of the CalCentral Pilot. Help shape its future by <a class="s3d-regular-links" href="http://ets.berkeley.edu/calcentral-feedback" target="_blank">telling us what you what you think</a>.<br />
+              To learn more about what CalCentral can do for you, visit <a class="s3d-regular-links" href="/~Help-and-Support">the Help and Support pages.</a>
+            </p>
+        </div>
+    </div>
+
+{% else %}    
+
+
+<div>
+    <div class="welcome-block welcome-unauth">
+        <div id="welcome-block-a">
+            <p id="top"><strong>Unifying</strong> the online experience<br />at <strong>UC Berkeley!</strong></p>
+            <div id="bottom">
+                <p><strong>CalCentral</strong> is a new resource for the <strong>UC Berkeley community</strong>.</p>
+            </div>
+        </div>
+
+        <div id="welcome-block-b">
+            <h2>CalCentral: Pilot Release</h2>
+
+            <p>We are hard at work <strong>improving</strong> this pilot release of <strong>CalCentral</strong>. As we improve it, you may notice changes to some existing features, or new capabilities being added to the system. This is all part of the development process, so stay tuned. </p>
+
+            <p><strong>In this release, pilot students, staff and faculty&nbsp;can:</strong></p>
+
+            <ul class="welcomelist">
+                <li>Create project, course and other groups</li>
+                <li>Create, organize and share information and documents</li>
+                <li>Send and receive messages</li>
+                <li>Collaborate in a network of classmates and colleagues</li>
+                <li>Maintain a personal profile and portfolio to share with the campus and the world</li>
+            </ul>
+
+            <p>
+                <img src="{{STATIC_URL}}images/welcome/handshake.png" alt="Handshake icon" width="38" height="33" style="float:left;padding-right:10px;">
+                <span style="font-size:1.3em;font-weight:bold;">We want to hear from you!</span><br />
+                <a href="http://ets.berkeley.edu/calcentral-feedback" class="s3d-regular-links">Click here and tell us what you think.</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+<!-- End CalCentral Customized -->
+
+{% endblock %}

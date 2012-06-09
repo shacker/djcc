@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Library{% endblock %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/pdfobject.js"></script>
+
+{% endblock extrahead %}
+
+{% block content %}
+
+{% if user.get_profile.followers.all.count > 0 %}
+
+    <h1>Share {{file}} with your followers?</h1>
+
+    <form action="" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <p><input type="submit" value="Share now" class="button blue"></p>
+    </form>
+
+    <p>Notifications will be sent to:</p>
+    <ul>
+    {% for f in user.get_profile.followers.all  %}
+        <li>{{f}}</li>    
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <h1>Nothing to share</h1>
+    <p>Bummer. No one is following you yet, so there's no one to share with :()<br>
+        Follow people you find in the directory - maybe they'll follow you back.
+    </p>
+{% endif %}
+
+{% endblock content %}

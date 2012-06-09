@@ -1,0 +1,32 @@
+{% extends "program/base.html" %}
+{% load chunks %}
+
+{% block section_name %}Programs{% endblock %}
+
+{% block index_content %}
+
+{% include 'program/subnav.html' %}
+
+<h2>{{ program }} Faculty and Lecturers</h2>
+
+{% if faculty %}
+<h3 style="border-bottom:solid 1px; padding-top:10px;">Faculty</h3><br />
+
+
+{% for f in faculty  %}
+    <p><span class="major">{{ f }}</span> ({{ f.type }})<br />
+        {{ f.bio_short }}
+         <br />
+        <a href="#"></a>
+    </p>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+{% extends "people/base.html" %}
+
+{% block title %}Directory{% endblock %}
+{% block page_heading %}Directory{% endblock %}
+
+{% block content %}
+
+<p class="results">{{ contact_list.count }} results
+<span class="current"> {{ paginator }} </span>
+</p>
+{% if explanatinon %}
+<p class="explanation">Searching for: {{explanation}}</p>
+{% endif %}
+
+<table class="grid">
+    <tr class="row2">
+        <th>Name</th>
+        <th>Other info</th>
+    </tr>
+
+    {% for contact in paginator.object_list %}
+        <tr class="{% cycle 'row1' 'row2' %}">      
+            <td>
+                <a href="{% url people_profile_detail contact.user.username %}">
+                {{ contact.user.last_name }}, {{ contact.user.first_name }}</a>
+            </td>
+        
+            <td>
+                TK
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<br />
+<div class="pagination">
+    <span class="step-links">
+    {% if paginator.has_previous %}<a href="?{{ request.META.QUERY_STRING }}&amp;page={{ paginator.previous_page_number }}" class="util-link">&lt;&lt; Previous page</a> ...{% endif %}
+    <span class="current">
+        {{ paginator }}
+    </span>
+    {% if paginator.has_next %} ... <a href="?{{ request.META.QUERY_STRING }}&amp;page={{ paginator.next_page_number }}" class="util-link">Next page &gt;&gt;</a>{% endif %}
+    </span>
+
+</div>
+
+{% endblock %}
+

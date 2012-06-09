@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Library{% endblock %}
+
+
+{% block content %}
+
+<h1>{{u.get_profile}}'s Library</h1>
+
+{% if myfiles %}
+    <ul>
+        {% for file in myfiles %}
+        <li>
+            <a href="{% url library_showfile file.id %}">{{file}}</a>
+        </li>        
+        {% endfor %}
+
+    </ul>
+{% else %}
+   <p>{{u.get_profile}} hasn't added anything to his library yet. </p>
+{% endif %}
+
+
+<h1>Files shared with me</h1>
+
+{% if shares %}
+    <ul>
+        {% for share in shares %}
+        <li>
+            <a href="{% url library_showfile share.file.id %}">{{share.file}}</a>
+        </li>        
+        {% endfor %}
+
+    </ul>
+{% else %}
+   <p>No one has shared files with you yet.</p>
+{% endif %}
+
+{% endblock content %}

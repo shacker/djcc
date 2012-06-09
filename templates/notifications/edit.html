@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Notification{% endblock %}
+
+{% block extrahead %}
+  <link type="text/css" href="{{STATIC_URL}}js/jquery-ui/css/eggplant/jquery-ui-1.8.17.custom.css" rel="Stylesheet" />
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+
+  <link type="text/css" href="{{STATIC_URL}}css/timepicker.css" rel="Stylesheet" />
+  <script src="{{STATIC_URL}}js/jquery-ui/js/timepicker-addon.js" type="text/javascript"></script>
+{% endblock extrahead %}
+
+
+{% block content %}
+
+<script type="text/javascript" charset="utf-8">
+    // Datetime pickers
+    $(document).ready(function(){
+
+        $('#id_event_due_date').datetimepicker(
+          { 
+            
+            changeMonth: true, 
+            changeYear: true, 
+            stepMinute: 10,
+            yearRange: '2012:2014'
+          }
+        );
+
+        $('#id_send_date').datetimepicker(
+          {
+            changeMonth: true, 
+            changeYear: true, 
+            stepMinute: 10,
+            yearRange: '2012:2014'
+          }
+        );
+        
+     });
+
+</script>
+
+
+    <h2>Add/Edit Notification</h2>
+    
+    {% if notification.id %}
+    <p>
+        This notification is currently
+        {% if notification.state == 'draft' %}in draft mode.{% endif %}
+        {% if notification.state == 'queue' %}in your send queue.{% endif %}
+        {% if notification.state == 'trash' %}in the trash.{% endif %}
+        {% if notification.state == 'arch' %}saved in your archive.{% endif %}                        
+    </p>        
+    {% endif %}
+    
+    <form action="" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        
+        <p>
+            <input type="submit" value="Save">
+            {% if notification.state == 'draft' %}
+                <input type="submit" name="enqueue" value="Move to Queue">
+                <input type="submit" name="trash" value="Move to Trash">                
+            {% endif %}
+            {% if notification.state == 'queue' %}
+                <input type="submit" name="draft" value="Move to Drafts">
+                <input type="submit" name="trash" value="Move to Trash">                
+            {% endif %}
+            {% if notification.state == 'trash' %}
+                <input type="submit" name="enqueue" value="Move to Queue">
+                <input type="submit" name="draft" value="Move to Drafts">
+            {% endif %}
+            
+            <br />
+            <a href="{% url dynamic_lists %}">Create or edit dynamic lists</a>
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+
+    <h1>CalCentral News</h1>
+    
+    {% for s in stories %}
+        <h2><a href="{% url news_story_detail s.id %}">{{s.headline}}</a></h2>
+        <p>{{s.pubdate}}</p>
+
+        {{s.body|safe}}
+        
+    {% endfor %}
+{% endblock %}

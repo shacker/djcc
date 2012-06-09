@@ -1,0 +1,12 @@
+Hi {{recip}} -
+
+{{sender}} has uploaded a file to CalCentral, and wanted to let you know. 
+
+{{file}} is at:
+http://{{site}}{% url library_showfile file.id %}
+
+------
+
+Want to stop receiving these updates? 
+Change the email notification preferences in your profile:
+http://{{site}}{% url people_profile_edit %}

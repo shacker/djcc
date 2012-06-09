@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block title %}Program Details{% endblock %}
+
+{% block extra_head %}{% endblock extra_head %} 
+
+{% block content %}  
+
+<h1>{{program}}</h1> 
+
+{% if program.description %}
+    {{program.description|safe}}    
+{% else %}
+    <p>No program description available.</p>
+{% endif %}
+
+
+<p>Instructors in this program:</p>
+
+<ul>
+{% for i in instructors %}
+    <li><a href="{% url people_profile_detail i.profile.user %}">{{i}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

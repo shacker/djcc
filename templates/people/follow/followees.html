@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Followees{% endblock %}
+
+{% block content %}
+
+    <h1>People I'm following</h1>
+
+    <ul>
+    {% for p in follower.followees.all  %}
+        <li><a href="{% url people_profile_detail p.user.username %}">{{p}}</a></li>
+    {% endfor %}
+    </ul>
+    
+{% endblock %}

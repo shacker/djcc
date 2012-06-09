@@ -1,0 +1,55 @@
+{% block topnav %}
+
+<ul id="topnav">
+
+    
+    {% if user.is_authenticated %}
+        <li>
+            <a href="{% url people_profile_detail user %}">Me</a>
+            <ul>
+                <li><a href="{% url dashboard %}">Dashboard</a></li>
+                <li><a href="{% url people_profile_detail user %}">My Profile</a></li>
+                <li><a href="{% url library_listfiles user %}">My Library</a></li>                
+                <li><a href="{% url membership_list %}">Memberships</a></li>
+
+                {% if user.is_superuser %}
+                    <li><a href="/admin" title="CalCentral">Admin</a></li>
+                {% endif %}
+            </ul>
+        </li>
+        <li>
+            <a href="{% url postman_inbox %}">Messages {% if postman_unread_count %} <strong>({{ postman_unread_count }})</strong>{% endif %}</a>
+        </li>
+        
+        <li>
+            <a href="{% url directory %}">Directory</a>
+        </li>
+    {% endif %}
+
+    
+    {% if perms.notifications.add_notification %}
+    <li><a href="{% url notifications %}">Notifications</a>
+        <ul>
+            <li><a href="{% url dynamic_lists %}">Dynamic Lists</a></li>
+        </ul>
+    </li>
+    {% endif %}
+    
+
+    <li><a href="{% url offerings_schedule %}">Courses</a>
+        <ul>
+            <li><a href="{% url program_categories %}">Categories</a></li>
+            <li><a href="{% url program_majors %}">Majors</a></li>
+            <li><a href="{% url scheduler %}">Schedule Builder</a></li>                                
+            
+        </ul>
+    </li>
+    <li><a href="{% url news_story_list %}">News</a></li>
+
+    {% if user.is_authenticated %}
+        <li><a href="{% url logout %}">Log out ({{user.get_profile}})</a></li>
+    {% else %}
+        <li><a href="{% url login %}">Log in</a></li>
+    {% endif %}
+</ul>
+{% endblock topnav %}

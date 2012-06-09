@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+{{ block.super }}
+{% endblock %}
+
+{% if request.user.is_staff %}
+    {% block app_nav %}
+    <div class="box">
+        <h2>Staff Navigation</h2>
+        <p>
+            <ul>
+                {% if profile %}
+                <li><a href="{% url people_profile_admin_edit profile.user.username %}">Edit {{profile}}</a></li>
+                {% endif %}
+                <li><a href="{% url people_profiles_list %}">Find People</a></li>
+            </ul>
+        </p>
+    </div>
+    {% endblock %}
+{% endif %}
+

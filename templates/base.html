@@ -1,0 +1,83 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>CalCentral - {% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/topmenu.css" />
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/buttons.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    <div id="container">
+        <div id="container2">
+
+            <div id="header"></div>
+
+            <div id="topmenu">
+                {% include "topnav.html" %}
+            </div>
+
+            <div id="contentcontainer">
+
+                <!-- ### Content Start ### -->
+                {# If sidebar dropped, widen the content area #}
+                {% if no_sidebar %}
+                    <div id="content_wide">
+                {% else %}
+                    <div id="content">
+                {% endif %}
+
+                {% block messages %}
+                    {% if messages %}
+                        <ul id="messagelist">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endblock %}
+
+                {% block content %}
+                {% endblock content %}
+
+                </div>
+
+                <!-- ### Content End ### -->
+
+                {% comment %}
+                Conditional sidebars vary per section, and may be on or off.
+                Site section is determined from URL, via utils.get_site_section context processor.
+                Send no_sidebar = True to disable sidebar.
+                {% endcomment %}
+
+                {% if not no_sidebar %}
+                    {% if site_section %}
+                        {% with "sidebars/"|add:site_section|add:".html" as sidebar_template %}
+                        {% include sidebar_template %}
+                        {% endwith %}
+                    {% else %}
+                        {% include "sidebars/home.html" %}
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            <div id="footer">
+                <p>
+                    <img src="{{STATIC_URL}}images/CalC-footer-logo.png" alt="CalC Footer Logo"><br />
+                    &copy;  UC Regents - All rights reserved. | <a href="{% url help %}">Help</a> | <a href="/about/">About</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+{% block extrafoot %}
+
+{% endblock extrafoot %}
+
+</body>
+</html>

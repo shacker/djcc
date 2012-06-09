@@ -1,0 +1,36 @@
+.walktime_widget {padding: 0px 12px;}
+
+.walktime_widget #walktime_map_container {
+    width:200px;
+    height:200px;
+}
+
+.walktime_widget p {
+    font-family:arial;
+}
+
+.walktime_widget p#answer {
+    font-size:1.2em;
+    color:#323D71;
+    font-weight:bold;
+}
+
+#walktime_iframe_map {
+    width:220px;
+    height:210px;
+}
+
+.walktime_widget #StartPoint, .walktime_widget #EndPoint {
+    width:100%;
+}
+
+/* In map.html : */
+#walktime_map_canvas { 
+    width: 200px; 
+    height: 200px;
+    margin:-5px;
+}    
+
+#walktime_map_link a {
+    text-decoration:none;
+}

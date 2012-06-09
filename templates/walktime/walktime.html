@@ -1,0 +1,42 @@
+
+
+<!-- WIDGET CONTENT CONTAINER -->
+<div class="walktime_widget">
+
+    <!-- MAIN VIEW -->
+    <div id="walktime_main" style="display:none;">
+
+        <p>
+            Select start and finish points for approximate distance
+            and walking time. Click map for a better view.
+        </p>
+
+        <p>
+            <select id="StartPoint">
+                <option value="0">Start</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="EndPoint">
+                <option value="0">Finish</option>
+            </select>
+        </p>
+
+        <p id="answer">
+            <span id="response">
+                <span id="distance_text"></span> meters (<span id="minutes_text"></span> minutes)
+            </span>
+        </p>
+
+        <a class="walktime_item_link" onclick="window.open(this.href,'map_large'); return false;" href=""><img id="walktime_googleimg" src=""></a>
+    </div>
+</div>
+
+<div class="s3d-widget-footer">
+    <a class="walktime_item_link s3d-widget-links" id="walktime_map_link" onclick="window.open(this.href,'map_large'); return false;" href="">View larger map</a>
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="{{STATIC_URL}}/walktime/walktime.js"></script>

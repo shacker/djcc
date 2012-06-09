@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Contacter{% endblock %}
+
+{% block content %}
+
+<h1>Contact</h1>
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+
+<p>Your message will be sent to:</p>
+
+<ul>
+    {% for r in recips  %}
+        <li>{{r}}</li>
+    {% endfor %}
+
+</ul>
+
+<form action="" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>    
+    <p><input type="submit" value="submit"></p>
+</form>
+
+{% endblock content %}

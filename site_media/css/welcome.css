@@ -1,0 +1,162 @@
+/**
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+ 
+/** CalCentral doesn't use any of this CSS currently 
+.welcome_widget .s3d-regular-links {color:#2683BC;font-size:11px;}
+.welcome_widget img {float:left;margin-right:12px;}
+.welcome_widget span {color:#424242;margin-bottom:12px;font-size:11px;}
+.welcome_widget h1 {font-weight:normal;color:#424242;font-size:24px;line-height:24px;}
+.welcome_widget h2 {font-size: 14px;font-weight:normal;color:#777;margin:5px 0 0;}
+*/
+
+/* begin CalCentral custom  */
+
+p {
+    font-size:12px;
+}
+
+.welcome-block {
+    margin: 0 12px 12px 0;
+    padding: 12px 0px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.welcome-block h2 {
+    margin: 0.2em 0 0.5em;
+    padding: 0.2em 0 0;
+    color: #333;
+    font-size: 2.3em;
+    font-weight: bolder;
+}
+
+.welcome-block p {
+    margin-bottom: 4px;
+}
+
+#welcome-block-a, #welcome-block-b {
+    width:339px;
+    height:424px;
+    border: 1px solid #b6c6d3;
+}
+
+/* Begin rules for landing page custom divs */
+
+#welcome-block-a {
+    float:left;
+}
+
+#welcome-block-b {
+    float:right;
+}
+
+#welcome-block-b h2 {
+    font-size:1.4em;
+    padding:10px;
+    border-bottom: 5px solid #3f8bbf;  
+}
+
+#welcome-block-b p, #welcome-block-b ul {
+    padding: 0px 20px 5px 30px;
+    letter-spacing:0.02em;
+    line-height:1.3em;
+}
+
+#welcome-block-b ul.welcomelist li {
+    list-style-image:url('/static/images/welcome/speech_bubble_tiny.png');
+    line-height:1.5em;
+}
+
+#welcome-block-a p#top {
+    margin-top:0px;
+}
+#welcome-block-a #top {
+    height:60px;
+    background-color:#c68811;
+    padding:10px 10px 0px 10px;
+    margin-bottom:0px;
+    color:#fff;
+    font-size:1.6em;
+    line-height:1.2em;
+    font-face:Arial;
+    border-bottom: 5px solid #3f8bbf;
+}
+
+#welcome-block-a #bottom {
+    height:350px;
+    padding:10px;
+    color: #2A2A2A;
+    font-size:1.3em;
+    letter-spacing:0.05em; 
+    line-height:1.2em;   
+    background: url('/static/images/welcome/calcentral_homepage_collage.png') no-repeat top left scroll;
+}
+/* End rules for landing page custom divs */
+
+
+.welcome-unauth {
+    height: 433px;
+    width:700px;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.welcome-block .welcome-body {
+    float: right;
+    width: 460px;
+    color: #666;
+    font-size: 1.2em;
+    line-height: 120%;
+}
+
+.welcome-block .gearbox {
+    margin-top: 12px;
+    background: white url('/dev/images/settings_icon.png') no-repeat 13px 13px scroll;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 8px 12px 12px 36px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.welcome-body .message-defined, .welcome-body ul, .welcome-body p {
+    color: #666;
+    line-height: 120%;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.welcome-block .welcome-body .gearbox .message-defined {
+    font-size: 0.9em;
+}
+
+.gearbox h4 {
+    color: #333;    
+    font-weight: bolder;
+    margin-top: 0.3em;
+}
+
+.gearbox img {
+    float:left;
+    margin-right:10px;
+}
+
+.gearbox p {
+    margin-top:3px;
+}
+
+/* end CalCentral custom */

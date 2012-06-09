@@ -1,0 +1,8 @@
+.smallbuttons {
+    display:block;
+}
+.smallbuttons a {
+    margin-top:7px;
+    margin-left:-5px;
+    margin-right:10px;
+}

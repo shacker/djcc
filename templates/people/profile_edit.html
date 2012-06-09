@@ -1,0 +1,23 @@
+{% extends 'people/base.html' %}
+
+{% block title %}Update your profile{% endblock %}
+{% block page_heading %}Update your profile{% endblock %}
+
+{% block content %}
+
+<h2>Editing profile for {{user.get_profile}}</h2>
+
+<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+
+    <p class="submit">
+        <input type="submit" name="submit" value="Submit" />
+    </p>
+
+</form>
+
+{% endblock %}

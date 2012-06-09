@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+
+    <h1>CalCentral News</h1>
+    
+    <h2>{{story.headline}}</h2>
+    <p>{{story.pubdate}}</p>
+
+    {{story.body|safe}}
+    
+
+{% endblock %}

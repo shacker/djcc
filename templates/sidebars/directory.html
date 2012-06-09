@@ -1,0 +1,35 @@
+<div id="sidebar">
+
+        <h2>Students by year</h2>
+        <ul class="links">
+            <li><a href="">Coming...</a></li>
+        </ul>
+        
+    <div id="basic_search" class="box box_toggle search_form">
+        <h2>Basic Search</h2>
+        <div class="box_contents {% if alumni_search %}hide{%endif %}">
+            <form action="" method="get" accept-charset="utf-8">
+                {% csrf_token %}
+                <ul>
+                    {{ basic_form.as_ul }}
+                    <li class="submit"><input type="submit" value="Search" class="button" /></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <div id="alumni_search" class="box box_toggle search_form">
+        <h2>Alumni Search</h2>
+        <div class="box_contents {% if not alumni_search %}hide{% endif %}">
+            <form action="" method="get" accept-charset="utf-8">
+                {% csrf_token %}
+                <ul>
+                    {{ alum_form.as_ul }}
+                    <li class="submit"><input type="submit" value="Search" class="button" />
+                    <input type="hidden" name="alumni_search" value="1" /></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+</div>

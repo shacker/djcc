@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+
+    {% if state == 'draft' %}
+        <h2>Draft Notifications</h2>
+    {% elif state == 'queue' %}
+        <h2>Queued Notifications</h2>
+    {% elif state == 'arch' %}
+        <h2>Archived Notifications</h2>
+    {% elif state == 'trash' %}
+        <h2>Trashed Notifications</h2>
+    {% else %}
+        <h2>Notifications</h2>
+    {% endif %}
+
+    {% if notifications %}
+        <form action="" method="post" accept-charset="utf-8">
+            {% csrf_token %}
+
+            {% if state == 'draft' %}
+                <input type="submit" name="enqueue" value="Add to Queue">
+                <input type="submit" name="copy" value="Copy to Drafts">
+                <input type="submit" name="trash" value="Move to Trash">
+
+            {% elif state == 'queue' or state == 'queue' %}
+                <input type="submit" name="endraft" value="Move to Drafts">
+                <input type="submit" name="trash" value="Move to Trash">
+
+            {% elif state == 'trash' %}
+                <input type="submit" name="endraft" value="Move to Drafts">
+                <input type="submit" name="delete" value="Delete permanently">
+            {% endif %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="notif_list" id="checkall" value="0"></th>
+                    <th>Subject</th>
+                    <th>Type</th>
+                    <th>Send Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in notifications %}
+                <tr>
+                    <td><input type="checkbox" name="notif_list" value="{{n.id}}"></td>
+                    <td class="wide"><a href="{% url notification_edit n.id %}">{{n.title}}</a></td>
+                    <td>{{n.get_type_display}}</td>
+                    <td>{{n.send_date|date:'M d, Y'}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </form>
+    {% else %}
+        <p>No notifications to show, sorry.</p>
+    {% endif %}
+    
+    {% if user.is_superuser %}
+        <p><a href="{% url notification_deliver %}">&raquo; Admin: Shunt queued notifications</a></p>
+    {% endif %}
+    
+<script>
+    $(function () {
+        $('#checkall').click(function () {
+            $(this).parents('table').find(':checkbox').attr('checked', this.checked);
+        });
+    });
+</script>
+
+{% endblock %}

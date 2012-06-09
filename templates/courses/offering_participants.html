@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Participants{% endblock %}
+
+{% block content %}
+
+<h1>Participants</h1>
+
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+
+<h3>Students</h3>
+{% if students.count > 0 %}
+    <ul>
+    {% for s in students  %}
+        <li><a href="{% url people_profile_detail s %}">{{s.get_profile}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}    
+    <p>No students are officially registered for this class yet.</p>
+{% endif %}
+
+
+<h3>Instructors</h3>
+{% if instructors.count > 0 %}
+    <ul>
+    {% for i in instructors  %}
+        <li><a href="{% url people_profile_detail i.profile.user %}">{{i}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}    
+    <p>No instructors are officially listed for this class yet.</p>
+{% endif %}
+
+{% endblock content %}

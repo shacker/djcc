@@ -1,0 +1,15 @@
+
+    <h2>
+        {% if note.type == 'task' %}Task: {% else %}Event: {% endif %}
+        {{note}}
+    </h2>
+    
+    <p>
+        Required?: <strong>{{ note.required|yesno:"Yes,No" }}</strong><br />
+        {% if note.type == 'task' %}Due on: {% else %}Date: {% endif %} {{note.event_due_date}}<br />
+        Sent by: <a href="{% url people_profile_detail note.author %}">{{note.author.get_profile}}</a><br />
+    </p>
+    
+    {{note.description|linebreaks}}
+    
+    

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Library{% endblock %}
+
+{% block extrahead %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/pdfobject.js"></script>
+
+{% endblock extrahead %}
+
+{% block content %}
+<style type="text/css" media="screen">
+    #pdf_target {
+        width:600px;
+        height:500px;
+    }
+</style>
+
+<h1>{{document}}</h1>
+
+<p>Posted by <a href="{% url people_profile_detail document.added_by %}">{{document.added_by.get_profile}}</a></p>
+
+<p><a href="{% url library_sharefile document.id %}" class="button blue small">Share this</a></p>
+
+{% with mimetype=document.mimetype.extension %}
+    {# Begin images #}
+    {% if mimetype == 'jpeg' or mimetype = 'jpg' or mimetype = 'gif' or mimetype = 'png' %}
+        <img src="{{document.file.url}}" />
+    {% endif %}
+    {# End images #}
+    
+    {# Begin PDF #}
+    {% if mimetype = 'pdf' %}
+         <script type="text/javascript">
+          window.onload = function (){
+            var success = new PDFObject({ url: "{{document.file.url}}" }).embed("pdf_target");
+          };
+        </script>
+
+        <div id="pdf_target">
+            <p>It appears you don't have Adobe Reader or PDF support in this web browser. 
+                <a href="{{document.file.url}}">Click here to download the PDF.</a></p>
+        </div>
+    {% endif %}
+    {# End images #}
+    
+    
+{% endwith %}
+
+ 
+
+{% endblock content %}

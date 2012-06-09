@@ -1,0 +1,16 @@
+
+    <h2>
+        {% if dnote.notification.type == 'task' %}Task: {% else %}Event: {% endif %}
+        {{dnote.notification}}
+    </h2>
+    
+    <p>
+        Required?: <strong>{{ dnote.notification.required|yesno:"Yes,No" }}</strong><br />
+        {% if dnote.notification.type == 'task' %}Due on: {% else %}Date: {% endif %} {{dnote.notification.event_due_date}}<br />
+        Sent by: <a href="{% url people_profile_detail dnote.notification.author %}">{{dnote.notification.author.get_profile}}</a><br />
+    </p>
+    
+    {{dnote.notification.description|linebreaks}}
+    
+    <p>Delivered: {{dnote.deliver_date}}</p>
+    

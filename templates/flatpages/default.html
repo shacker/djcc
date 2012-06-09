@@ -1,0 +1,9 @@
+{% extends 'people/base.html' %}
+
+{% block content %}
+<h1>{{ flatpage.title }}</h1>    
+
+{{ flatpage.content|safe }}
+    
+{% endblock %}
+

@@ -1,0 +1,71 @@
+{% extends "program/base.html" %}
+{% load chunks %}
+
+{% block extra_head %} {% endblock extra_head %}    
+
+
+{% block content %}
+<div id="course_header">
+    <div class="grid_8 alpha">
+        <div class="breathing_room_left">
+            <h1>{{ current_sem }}</h1>
+        </div>
+    </div><!-- END -->
+    <div class="grid_4 omega">
+        <div class="breathing_room_right">
+            <h4>View another semester:</h4>
+            <p> 
+            <form action="" method="post">{% csrf_token %}
+                <select name="sem">
+                {% for s in semesters  %}
+                <option value="{{ s.id }}" {% ifequal s.id current_sem.id  %}selected="selected"{% endifequal %}>{{ s }}    
+                {% endfor %}
+                </select>
+                <input type="submit" name="changesem" value="Go">
+            </form>
+            </p>
+        </div>
+    </div><!-- END -->
+    <div class="clear">&nbsp;</div><!-- CLEAR -->
+    <div class="border_bottom" style="margin: 10px;"></div>
+</div>
+{% for course in course_list  %}
+<!-- BEGIN course_description -->
+<div class="course_description">
+    <div class="course_summary grid_8 alpha">
+        <div class="breathing_room_left">
+            <h2>J{{ course.jstring }}: {{ course.title }}</h2> 
+            <p>{{ course.description|linebreaks|safe}}</p>
+            <p><strong>Restrictions and Prerequisites:</strong> {% if course.restrictions %}{{ course.restrictions }} {% endif %}  {% if not course.restrictions %}None {% endif %}</p>
+        </div>
+    </div><!-- END course_summary -->
+    <div class="course_details grid_4 omega">
+        <div class="local_nav breathing_room_right">            
+        <dl>
+            <dt>COURSE DETAILS:</dt>
+            <dd><strong>Location:</strong> 
+            {# If location is "other", print the location_other field. In the Rooms table "Other" is record 59 #}
+            {% ifequal course.location.id 59 %}
+                {{ course.location_other }}
+            {% else %}
+                {{ course.location }}
+            {% endifequal %}
+            </dd>
+            <dd><strong>Time:</strong>{{ course.time }}</dd>
+            <dd><strong>Instructors:</strong><br />
+           {% for i in course.instructors.all %}{{ i }}{% if not forloop.last%},{% endif %} {% endfor %}
+            </dd>
+            <dd><strong>CCN:</strong>{{ course.ccn }}</dd>
+            <dd><strong>Section:</strong>{{ course.sec }}</dd>
+            <dd><strong>Units:</strong>{{ course.units }}</dd>
+            <dd><strong>Fee:</strong>{{ course.fee|yesno:"Yes,No" }}</dd>
+            <dd><strong>Enrollment Limit:</strong>{{ course.enroll_lim }}</dd>
+        </dl>
+        </div>
+    </div><!-- END course_details -->
+    <div class="clear"></div><!-- CLEAR -->
+    <div class="border_bottom" style="margin: 10px;"></div>
+</div><!-- END course_description -->
+{% endfor %}
+{% endblock content %} 
+

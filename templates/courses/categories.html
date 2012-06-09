@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extra_head %} {% endblock extra_head %}    
+
+
+{% block content %}
+
+<h1>Categories for Programs of Study at UC Berkeley</h1>
+
+<p>Click to view Majors</p>
+<ul>
+
+{% for c in categories  %}
+    <li><a href="{% url program_category c.slug %}">{{c}}</a></li>
+    
+{% endfor %}
+</ul>
+
+{% endblock content %} 
+

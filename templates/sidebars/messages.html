@@ -1,0 +1,23 @@
+{% load i18n %}
+<div id="sidebar">
+
+<h2>INBOX etc.</h2>
+
+{% block postman_menu %}
+<ul class="links">
+    <li><a href="{% url postman_inbox %} ">{% trans "Inbox" %}</a></li>
+    <li><a href="{% url postman_write %} ">{% trans "Write" %}</a></li>
+    <li><a href="{% url postman_sent %} ">{% trans "Sent" %}</a></li>
+    <li><a href="{% url postman_archives %} ">{% trans "Archived" %}</a></li>
+    <li><a href="{% url postman_trash %} ">{% trans "Trash" %}</a></li>
+</ul>
+{% endblock %}
+
+
+
+<h2>Find Your Friends</h2>
+<p>
+Aliquam vel sem non nisl cursus porta non vitae mi. Integer sit amet felis dui. Duis sodales tortor eu leo aliquet convallis. Nulla in arcu et nulla porta bibendum. Nullam facilisis ultrices tortor at tempus. Nam et consectetur turpis. Vivamus nec nulla purus, id dictum sapien.
+</p>
+
+</div>

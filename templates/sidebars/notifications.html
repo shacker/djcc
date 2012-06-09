@@ -1,0 +1,17 @@
+<div id="sidebar">
+
+    <h2>Notifications</h2>
+    <ul class="links">
+        <li><a href="{% url notification_create %}">Create New</a></li>
+        <li><a href="{% url notifications %}">Drafts</a></li>
+        <li><a href="{% url notifications_queue %}">Queue</a></li>
+        <li><a href="{% url notifications_archived %}">Archive</a></li>        
+        <li><a href="{% url notifications_trash %}">Trash</a></li>                        
+    </ul>
+    
+    <h2>Dynamic Lists</h2>
+    <ul class="links">
+        <li><a href="{% url dynamic_lists %}">View or Create</a></li>
+    </ul>    
+        
+</div>

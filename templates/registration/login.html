@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <h2>You are already logged in!</h2>
+        <p>Do you want to <a href="{% url logout %}">log out</a>?</p>
+    {% else %}
+
+        {% if form.errors %}
+            <p class="error">Sorry, that's not a valid username or password</p>
+        {% endif %}
+
+        <h3>Replace this with CAS</h3>
+        <form action="?next={% url check_terms %}" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="" id="username"><br />
+            <label for="password">Password:</label>
+            <input type="password" name="password" value="" id="password">
+            <br />
+            <input type="submit" value="login" />
+
+    {% endif %}
+
+{% endblock %}

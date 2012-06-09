@@ -1,0 +1,28 @@
+
+    <h2>
+        {{material}}
+    </h2>
+
+    <h3>
+        {{material.offering}}, {{material.offering.semester}}
+    </h3>
+    
+    {% if material.description %}
+        {{material.description|linebreaks}}        
+    {% else %}
+        <p>No description available.</p>
+    {% endif %}
+
+    
+    {% if material.obtain_at %}
+    <p>You can find this at: {{material.obtain_at}}</p>        
+    {% endif %}
+
+    {% if material.url %}
+        On the web: <a href="{{material.url}}">{{material.url}}</a>
+    {% endif %}
+    
+    {% if material.cost %}
+    <p>Approximate cost: ${{material.cost}}</p>            
+    {% endif %}
+

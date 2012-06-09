@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<style type="text/css" media="screen">
+    td {
+        vertical-align:top;
+        padding:20px;
+    }
+</style>
+
+<h2>My Memberships</h2>
+
+{% if worlds.count > 0 %}
+    <ul>
+    {% for w in worlds %}
+        <li><a href="{% url world_index w.slug %}">{{w}}</a></li>
+    {% endfor %}
+    </ul>
+    
+    <p><a href="{% url create_world %}">Create a group</a> of your own!</p>
+    
+{% else %}
+    You don't yet belong to any groups. Find one to join, or <a href="{% url create_world %}">create one</a>!
+{% endif %}
+
+
+
+{% if draft_worlds.count > 0 %}
+<h3>Unpublished Worlds</h3>
+    <ul>
+    {% for w in draft_worlds %}
+        <li><a href="{% url world_index w.slug %}">{{w}}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+    
+    
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <h4>People I'm following</h4>
+                    <ul>
+                    {% for p in user.get_profile.followees.all %}
+                        <li><a href="{% url people_profile_detail p.user.username %}">{{p}}</a></li>
+                    {% endfor %}
+                    </ul> 
+                </td>
+                
+                <td>
+                    <h4>People following me</h4>
+                    <ul>
+                    {% for p in user.get_profile.followers.all %}
+                        <li><a href="{% url people_profile_detail p.user.username %}">{{p}}</a></li>
+                    {% endfor %}
+                    </ul> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}

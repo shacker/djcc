@@ -1,0 +1,18 @@
+<div id="sidebar">
+    
+    <h2>Dynamic Lists</h2>    
+    <ul class="links">
+        <li><a href="{% url dynamic_list_create %}">Create List</a></li>
+        {% for dl in dlists %}
+            <li><a href="{% url dynamic_list_edit dl.id %}">{{dl}}</a></li>
+        {% endfor %}
+    </ul>
+    
+    
+    <h2>Notifications</h2>
+    <ul class="links">
+        <li><a href="{% url notifications %}">View or Create</a></li>
+    </ul>    
+    
+    
+</div>

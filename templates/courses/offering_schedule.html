@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Details{% endblock %}
+
+
+{% block content %}
+
+<h1>Schedule</h1>
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+<ul>
+    <li><strong>Time:</strong>{{ offering.time }}</li>
+    <li><strong>CCN:</strong> {{ offering.course.ccn }}</li>
+    <li><strong>Type:</strong> {{ offering.course.get_course_type_display }}</li>
+    <li><strong>Section:</strong> {{ offering.sec }}</li>
+    <li><strong>Units:</strong> {{ offering.course.units }}</li>
+    <li><strong>Fee:</strong> {{ offering.fee|yesno:"Yes,No" }}</li>
+    <li><strong>Enrollment Limit:</strong> {{ offering.enroll_lim }}</li>
+    <li><strong>Programs:</strong></li>
+</ul> 
+
+{% endblock content %}

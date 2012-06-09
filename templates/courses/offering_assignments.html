@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Course Contacter{% endblock %}
+
+{% block extrahead %}
+  <link type="text/css" href="{{STATIC_URL}}js/jquery-ui/css/smoothness/jquery-ui-1.8.8.css" rel="Stylesheet" />
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+{% endblock extrahead %}
+
+
+{% block content %}
+
+<script>
+    function loadPop(url) {
+        // Loads task and event displays into jquery-ui popover dialog
+        $('#assignment-pop').load(url);
+        $('#assignment-pop').dialog('open'); 
+    }
+
+</script>
+
+<h1>Assignments</h1>
+
+<h2>{{offering}}</h2>
+<h3>{{offering.semester}}</h3>
+
+{% if assignments.count > 0 %}
+
+    {% for a in assignments  %}
+        <p class="shortblock">
+            <strong>{{a.due_date|date:'M d Y'}}: {{a}}</strong> <br>
+            <a href="{% url offering_assignment_detail a.id %}" onclick="loadPop(this.href);return false;" class="button small blue" style="margin-top:10px;">Details</a> 
+        </p>
+    {% endfor %}
+
+{% else %}    
+    <p>No assignments have been made yet.</p>
+{% endif %}
+
+{# Container for popups #}
+<div id="assignment-pop" style="display:none;"></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#assignment-pop").dialog({
+        autoOpen: false, 
+        bgiframe: true, 
+        height: 500, width: 650, 
+        modal: false,
+        buttons: {
+                    "Done reading": function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+        });
+});
+</script>
+{% endblock content %}

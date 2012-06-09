@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Course Schedule{% endblock %}                     {# html <head> title; use Title Case #}
+{% block body_class %}section{% endblock %}         {# lowercase; no spaces #}
+{% block body_id %}section{% endblock %}            {# lowercase; no spaces  #}
+{% block section_name %}Courses{% endblock %}              {# main section name; e.g. 'Events'; use Title Case; #}
+
+
+{% block content %}  
+<div id="main_content" class="grid_16">    
+<form action="" method="post">{% csrf_token %}
+
+    <h2>Course Schedule for {{ current_sem }}</h2>
+
+    <p>
+        View another semester: 
+
+        <select name="sem">
+        {% for s in semesters  %}
+            <option value="{{ s.id }}" {% ifequal s.id current_sem.id  %}selected="selected"{% endifequal %}>{{ s }}    
+        {% endfor %}
+        </select>
+        <input type="submit" name="changesem" value="Go">
+    </p>
+</form>
+
+<table id="schedule" border="0" cellpadding="3" cellspacing="1" >
+    <thead>
+        <tr>
+            <th>Course-Sec</th>
+            <th>CCN</th>
+            <th>Course Title</th>
+            <th>Instructor</th>        
+            <th>Units</th>
+            <th>Fee</th>
+            <th>Lim*</th>                
+            <th>Time</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+        
+    {% for offering in offerings %}
+        <tr class="{% cycle 'even' 'odd' %}">
+
+            <td>{{ offering.course.cstring }}-{{ offering.sec }}</td>
+            <td>
+                {{ offering.course.ccn }}
+            </td>
+
+            <td>
+                <a href="{% url offering_detail offering.id %}" onclick="OpenDetails(this.href); return false">
+                {% if offering.title %}
+                    {{ offering.title|truncatewords:4 }}
+                {% else %}                    
+                    {{ offering.course.title|truncatewords:4 }}
+                {% endif %}
+            </a>
+            </td>
+            <td>
+            {% ifnotequal offering.instructors.count 1  %}
+              See details
+            {% endifnotequal %}
+            {% ifequal offering.instructors.count 1 %}
+            {% for i in offering.instructors.all %}{{ i }}{% endfor %}  
+            {% endifequal %}
+            </td>                
+            <td>{{ offering.course.units }}</td>
+            <td><strong>{{ offering.fee|yesno:"Y," }}</strong></td>
+            <td>{% if offering.enroll_lim %}{{ offering.enroll_lim }}{% endif %}</td>                
+            <td>{{ offering.time }}</td>
+            <td>
+            {# If location is "other", print the location_other field. In the Rooms table "Other" is record 59 #}
+            {% ifequal offering.location.id 59 %}
+                Other (see details)
+            {% else %}
+                {{ offering.location }}
+            {% endifequal %}              
+            </td>
+        </tr>
+    {% endfor %}
+
+
+        
+</table>
+
+<ul class="alert">
+    <li>Schedule is subject to change. </li>
+    <li>Classes will be added/changed prior to the beginning of the semester.</li>
+    <li>Classes listed with "var" in the units column can have a variable number of  units. See instructor for details.</li>    
+    <li>Registration in class does NOT guarantee enrollment.</li>
+    <li>* Enrollment limit. Attend first class to verify placement.</li>
+</ul>
+
+</div> <!-- END main_content -->
+{% endblock content %}

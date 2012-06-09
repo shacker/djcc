@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Course Schedule{% endblock %}
+
+{% block content %}
+
+    <h1>Schedule Builder</h1>
+
+    <p>You've added the courses below to your schedule. <br>
+        <b>This is NOT an official schedule and does NOT <br>
+            mean you've actually enrolled in these courses! </b>
+        </p>
+    
+    {% if myclasses %}
+
+        {% for c in myclasses %}
+        <p  class="shortblock">
+            <strong><a href="{% url offering_detail c.id %}">{{c}}</a></strong> <br>
+            {{c.time}}<br>
+            {{c.location}}<br>
+            <a href="{% url remove_course_from_schedule c.id %}" class="button small blue" style="margin-top:10px;">Delete</a> 
+        </p>
+        {% endfor %}
+
+    
+    {% else %}
+        <p>You haven't added any classes to your schedule yet. 
+        To build your schedule, click "Add to Schedule" button 
+        while surfing the course catalog.</p>    
+    {% endif %}
+{% endblock %}

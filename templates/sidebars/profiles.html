@@ -1,0 +1,62 @@
+<div id="sidebar">
+
+    {% if user.username == profile.user.username %}
+    <h2>Your Profile</h2>    
+        <ul class="links">
+                    
+            {# Everyone gets basic profile editing #}
+            <li><a href="{% url people_profile_edit %}">Bio and Picture</a></li>
+
+            {% if profile.student %}
+            <strong>My Student Info</strong>
+            {% endif %}
+
+            {% if profile.alumni %}
+            <li><a href="{% url people_profile_edit_related related_obj_id=profile.pk, related_model='alumni' %}">{{ profile.alumni.grad_year }}Alumni Info</a></li>
+            {% endif %}
+
+            {% if profile.staff %}
+            <li><a href="{% url people_profile_edit_related related_obj_id=profile.pk, related_model='staff' %}">Office</a></li>
+            {% endif %}
+
+            {% if profile.instructor %}
+            <li><a href="{% url people_profile_edit_related related_obj_id=profile.pk, related_model='instructor' %}">Instructor Info</a></li>
+            {% endif %}
+
+            {# Addresses #}
+            <li><a href="{% url profile_edit_related_multi 'Address' %}">Addresses</a></li>
+
+            {# Awards #}
+            <li><a href="{% url profile_edit_related_multi 'Award' %}">Awards</a></li>
+
+            {# Experience #}
+            <li><a href="{% url profile_edit_related_multi 'Experience' %}">Experience</a></li>
+
+            {# Skills #}
+            <li><a href="{% url profile_edit_related_multi 'Skill' %}">Skills</a></li>
+            
+            {# Education #}
+            <li><a href="{% url profile_edit_related_multi 'Education' %}">Education</a></li>
+
+        </ul>
+        
+        <h2>More</h2>
+        <ul class="links">
+            <li><a href="{% url membership_list %}">My Memberships</a></li>
+            <li><a href="{% url dynamic_lists %}">Dynamic Lists</a></li>
+        </ul>
+        
+        
+    {% else %}
+        
+        <h2>Profiles</h2>
+        <ul class="links">
+            <li><a href="{% url people_profile_edit %}">Edit your profile</a></li>
+            <li><a href="{% url directory %}">Find people</a></li>            
+        </ul>
+        
+    {% endif %}
+    
+
+
+</div>

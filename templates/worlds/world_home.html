@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    
+<h2>{{world}}</h2>
+
+
+
+{% if world.published %}
+    <h3>This world is currently published - everyone can see it.</h3>
+{% else %}
+    <h3>This world is currently in Draft mode - only you can see it.</h3>
+{% endif %}
+
+{% if world.created_by == user %}
+    <a href="{% url edit_world world.slug %}">Edit this world</a>    
+{% endif %}
+
+
+<p>
+    Created by: <a href="{% url people_profile_detail world.created_by.profile.user %}">{{world.created_by.profile}}</a><br />
+    Created on: {{world.created_date}}<br />
+</p>
+
+
+{{world.description|safe}}
+
+<p>
+    <b>Members:</b>
+    <ul>
+    {% for m in world.members.all  %}
+        <li><a href="{% url people_profile_detail m %}">{{m.profile}}</a></li>
+    {% endfor %}
+    </ul>
+    
+</p>
+
+{% endblock %}

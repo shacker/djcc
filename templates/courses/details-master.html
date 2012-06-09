@@ -1,0 +1,21 @@
+{% extends "program/base.html" %}
+{% load chunks %}
+
+{% block title %}CCN #s for Master's Course{% endblock %}
+
+{% block extra_head %}  
+{% endblock extra_head %} 
+
+<h1>{% block content_title %}{% endblock content_title %}</h1>        
+
+{% block content_body %}  
+    <h3>J-294 IDs for {{ semester }}</h3>
+    <p>
+    Please note: J-294 is  a two-semester course (one unit Fall, one unit Spring).
+    You <b>MUST</b> register for both semesters and it must be taken for a grade.
+    </p>
+    {{ semester.j294_list|linebreaks }}
+    <form style="padding-top:20px;">{% csrf_token %}
+        <input type=button value="Close Window" onClick="javascript:window.close();">
+    </form> 
+{% endblock content_body %}

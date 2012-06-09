@@ -1,0 +1,40 @@
+Django
+django-extensions
+sorl-thumbnail
+PIL
+django_profiles
+django-timezones
+pytz
+django-autoslug
+BeautifulSoup
+docutils
+pygments
+django-debug-toolbar
+Werkzeug
+django-pagination
+
+
+# Manual installs
+
+# We do manual install of postman because its setup.py only installs a binary egg we can't see inside
+# mkdir src
+# cd src
+# hg clone https://bitbucket.org/psam/django-postman
+# cd django-postman
+# mv postman ../djcc/apps
+
+# Manual install of django-pagination (does not include setup.py)
+# cd src
+# svn checkout http://django-pagination.googlecode.com/svn/trunk/ django-pagination-read-only
+# cd django-pagination-read-only
+# python setup.py install
+
+
+# Optional, for pygraphiz:
+# Install the binary from http://graphviz.org/Download_macos.php
+# Then follow the last part of the  instructions  here
+# http://bradmontgomery.net/blog/pygraphviz-on-os-x-sl-with-virtualenv/
+# library_path='/usr/local/lib/graphviz/'
+# include_path='/usr/local/include/graphviz/'
+# Now you can output models graphic with:
+# python manage.py graph_models -ango models.png

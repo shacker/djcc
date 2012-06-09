@@ -1,0 +1,113 @@
+{% extends 'people/base.html' %}
+
+{% block title %}Update {{ related_model|title }} Info{% endblock %}
+{% block page_heading %}Update {{ related_model|title }} Info{% endblock %}
+
+{% block extrahead %}
+  <link type="text/css" href="{{STATIC_URL}}js/jquery-ui/css/smoothness/jquery-ui-1.8.8.css" rel="Stylesheet" />
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+  <link type="text/css" href="{{STATIC_URL}}css/profile.css" rel="Stylesheet" />
+{% endblock extrahead %}
+
+{% block content %}
+
+<script>
+    // Popup for an existing record
+    function loadPop(url) {
+        // Loads object related to profile into jquery-ui popover dialog
+        $('#edit_item').load(url);
+        $('#edit_item').dialog('open'); 
+    }
+    
+    // Popup for a new record
+    function loadNewPop() {
+        // Loads new item form into jquery-ui popover dialog
+        $('#newitem').dialog('open'); 
+    }
+    
+
+</script>
+
+<h1>{{related_model}}</h1>
+
+{% if itemset %}
+    {% for i in itemset  %}
+        {% if related_model = 'Address' %}
+        <p class="shortblock">
+            <strong>{{i.get_address_type_display}}:</strong> {% if i.valid_from %}({{i.valid_from}} - {{i.valid_to}}){% endif %}<br />
+            {{i.street_1}}<br />
+            {% if i.street_2 %}
+                {{i.street_2}}<br />
+            {% endif %}
+            {% if i.street_3 %}
+                {{i.street_3}}<br />
+            {% endif %}
+            {{i.city}},{{i.state}} {{i.postal_code}}<br />
+            {{i.country}}<br />
+
+
+        {% else %}
+            <p class="shortblock">
+                {{i}}
+
+        {% endif %}
+        <span class="smallbuttons">
+            <a href="{% url people_profile_edit_related related_model i.id %}" class="button small blue">Edit</a> 
+            <a href="{% url profile_delete_related related_model i.id %}" class="button small blue">Delete</a>
+        </span>    
+        
+        </p>
+    {% endfor %}
+    <a href="" onclick="loadNewPop();return false;" class="button small blue">Add another?</a>
+{% else %}    
+    <p>Nothing to show yet, but you can <a href="" onclick="loadNewPop();return false;" class="button small blue">add one</a></p>
+{% endif %}
+
+{# Hidden form for new item #}
+<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data" id="newitem" style="display:none;">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+
+    <p class="submit">
+        <input type="submit" name="submit" value="Submit" />
+    </p>
+
+</form>
+
+
+{# Hidden form for existing item uses external template #}
+<div id="edit_item" style="display:none;">
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#newitem").dialog({
+        autoOpen: false, 
+        bgiframe: true, 
+        height: 500, width: 650, 
+        modal: false,
+        buttons: {
+                    "Cancel": function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+        });
+        
+   $("#edit_item").dialog({
+        autoOpen: false, 
+        bgiframe: true, 
+        height: 500, width: 650, 
+        modal: false,
+        buttons: {
+                    "Cancel": function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+        });        
+});
+</script>
+{% endblock %}

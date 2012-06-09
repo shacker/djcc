@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{major}}{% endblock %}
+
+{% block content %}
+
+<h1>{{major}}</h1>
+
+
+{{major.description|safe}}
+
+<p>In categories: 
+{% for c in major.categories.all  %}
+    <a href="{% url program_category c.slug %}">{{c}}</a>{% if not forloop.last %},{% endif %}
+
+{% endfor %}
+</p>
+
+<h3>Programs of study in the {{major}} program:</h3>
+
+{% if major.program_set.all.count > 0 %}
+    <ul>
+    {% for p in major.program_set.all  %}
+        <li><a href="{% url program_detail p.slug %}">{{p}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>None to show</p>
+{% endif %}
+
+<h3>Courses offered in {{major}}:</h3>
+
+<p><b>[Courses don't have pages - classes do. Either we start having Course pages or make this list smart so that it finds just the classes associated with this course for the current semester.]</b></p>
+
+<ul>
+{% for c in major.course_set.all  %}
+    <li>{{c}}</li>
+{% endfor %}
+</ul>
+
+
+
+{% endblock content %} 
+

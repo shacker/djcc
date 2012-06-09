@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extra_head %} {% endblock extra_head %}    
+
+
+{% block content %}
+
+<h1>Majors at UC Berkeley</h1>
+
+<p>(or view <a href="{% url program_categories %}">majors by category</a>)</p>
+<ul>
+
+{% for m in majors  %}
+    <li><a href="{% url program_major m.slug %}">{{m}}</a></li>
+    
+{% endfor %}
+</ul>
+
+{% endblock content %} 
+

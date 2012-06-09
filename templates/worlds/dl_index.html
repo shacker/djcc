@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    
+<h2>Dynamic Lists</h2>
+
+<p>These are the lists you either have created, or have been designated an administrator of:</p>
+
+{{world.description|safe}}
+
+
+    {% if dlists %}
+        <form action="" method="post" accept-charset="utf-8">
+            {% csrf_token %}
+
+            <input type="submit" name="copy" value="Copy">
+            <input type="submit" name="delete" value="Delete">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"  id="checkall" value="0"></th>
+                        <th>Date modified</th>
+                        <th>List</th>
+                        <th>Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dl in dlists %}
+                    <tr>
+                        <td><input type="checkbox" name="dlist_list" value="{{dl.id}}"></td>
+                        <td>{{dl.modified_date|date:'M d, Y'}}</td>
+                        <td class="wide"><a href="{% url dynamic_list_edit dl.id %}">{{dl}}</a></td>
+                        <td>{{dl.get_members.count}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    {% else %}
+        <p>No list to show. <a href="{% url dynamic_list_create %}">Create one?</a></p>
+    {% endif %}
+<script>
+    $(function () {
+        $('#checkall').click(function () {
+            $(this).parents('table').find(':checkbox').attr('checked', this.checked);
+        });
+    });
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'people/base.html' %}
+
+{% block title %}Update {{ related_model|title }} Info{% endblock %}
+{% block page_heading %}Update {{ related_model|title }} Info{% endblock %}
+
+{% block content %}
+
+<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+
+    <p class="submit">
+        <input type="submit" name="submit" value="Submit" />
+    </p>
+
+</form>
+
+{% endblock %}

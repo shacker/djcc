@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extrahead %}
+  <link type="text/css" href="{{STATIC_URL}}js/jquery-ui/css/smoothness/jquery-ui-1.8.8.css" rel="Stylesheet" />
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}walktime/walktime.css" />
+{% endblock extrahead %}
+
+
+{% block content %}
+
+<script>
+    function loadPop(url) {
+        // Loads task and event displays into jquery-ui popover dialog
+        $('#taskevent').load(url);
+        $('#taskevent').dialog('open'); 
+    }
+
+</script>
+
+<style type="text/css" media="screen">
+    table#dashboard {
+        border-spacing:10px;
+    	
+    }
+    
+    table#dashboard td {
+        border: 1px solid #BDBDBD;
+        width:200px;
+        vertical-align:top;
+        
+    }
+    
+    table#dashboard h2 {
+        font-size:14px;
+        background-color:#E2E2E2;
+        margin:-5px;
+        padding:5px;
+        vertical-align:top;
+
+    }
+
+    table#dashboard h3 {
+        font-size:12px;
+    }
+
+</style>
+
+    <h1>My Dashboard</h1>
+        
+    <table id="dashboard">
+        <tbody>
+            <tr>
+                <td>
+                    <h2>CalCentral News</h2>
+                    {% for s in stories %}
+                        <h3><a href="{% url news_story_detail s.id %}">{{s.headline}}</a></h3>
+                    {% endfor %}
+                </td>
+                
+                <td>
+                    <h2>My Tasks</h2>
+                    {% for t in tasks %}
+                        <h3><a href="{% url notification_display t.id %}" onclick="loadPop(this.href);return false;">{{t}}</a></h3>
+                    {% endfor %}
+                </td>
+                
+                <td>
+                    <h2>Coming Events</h2>
+                    {% for e in events %}
+                        <h3><a href="{% url notification_display e.id %}" onclick="loadPop(this.href);return false;">{{e}}</a></h3>
+                    {% endfor %}
+                </td>                                
+            </tr>
+            
+            <tr>
+                <td>
+                    <h2>Walk Time</h2>
+                    {% include "walktime/walktime.html" %}
+                </td>
+                
+                <td>
+                    <h2>Another widget</h2>
+                    <p>Something</p>
+                </td>
+                
+                <td>
+                    <h2>Another widget</h2>
+                    <p>Something</p>
+                </td>                                
+            </tr>            
+
+
+        </tbody>
+    </table>
+
+    {# Container for popups #}
+    <div id="taskevent" style="display:none;"></div>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#taskevent").dialog({
+            autoOpen: false, 
+            bgiframe: true, 
+            height: 500, width: 650, 
+            modal: false,
+            buttons: {
+                        "Done reading": function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+            });
+    });
+    </script>
+{% endblock %}
