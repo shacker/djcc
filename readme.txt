@@ -5,7 +5,7 @@ pip install virtualenvwrapper   # If you don't have it already
 mkvirtualenv djcc
 workon djcc
 cdvirtualenv
-git clone xxx
+git clone https://github.com/shacker/djcc.git
 pip install -r requirements.txt
 cp djcc/manage.py .
 python manage.py runserver
