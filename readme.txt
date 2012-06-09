@@ -25,6 +25,7 @@ workon djcc
 cdvirtualenv
 git clone https://github.com/shacker/djcc.git
 pip install -r requirements.txt
+# Modify paths in local_settings.py
 cp djcc/manage.py .
 python manage.py createsuperuser	# Create a superuser login for yourself
 
