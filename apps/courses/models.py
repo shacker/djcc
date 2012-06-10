@@ -85,7 +85,7 @@ class EvalQGroup(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=384)
-    ccn = models.CharField('CCN',max_length=384, blank=True) # This should be an IntegerField, but we have exceptions
+    ccn = models.IntegerField('CCN',max_length=8,blank=True) # This should be an IntegerField, but we have exceptions
     cstring = models.ForeignKey(Cstring,verbose_name='Course String',help_text="e.g. J-200, but without the J")
     units = models.IntegerField(choices=constants.UNIT_TYPE_CHOICES)
     course_type = models.IntegerField(choices=constants.COURSE_TYPE_CHOICES)
