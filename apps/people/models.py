@@ -202,10 +202,6 @@ class Profile(BaseProfile):
     def __unicode__(self):
         return self.get_display_name()
 
-    def get_absolute_url(self):
-        return reverse("people_profile_detail", self.user.username)
-    # Deprecate this - using named URLs everywhere -sfh
-    get_absolute_url = models.permalink(get_absolute_url)
 
     def get_display_name(self):
         if self.user.first_name and self.user.last_name: # and self.show_real_name:
