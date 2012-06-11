@@ -41,14 +41,19 @@ class Medium(models.Model):
     def __unicode__(self):
         return "%s" % (self.description)
 
+
 class EmployeeProfileManager(models.Manager):
     """
     Only return staff and instructor profiles.
     """
 
     def get_query_set(self):
-        return super(EmployeeProfileManager, self).get_query_set().all().extra(
-                        where=['people_profile.user_id in ( SELECT profile_id FROM people_staff UNION SELECT profile__id FROM people_instructor)'])
+
+        return super(EmployeeProfileManager, self).get_query_set().filter(
+            user__groups__name__in=
+            ['Staff','IT Staff','Faculty','Faculty Emeritus','Lecturers','Visiting Lecturers','Web Team']
+            )
+
 
 
 class StaffProfileManager(models.Manager):
@@ -57,24 +62,10 @@ class StaffProfileManager(models.Manager):
     """
 
     def get_query_set(self):
-        return super(StaffProfileManager, self).get_query_set().all().extra(
-                        where=['people_profile.user_id in ( SELECT profile_id FROM people_staff)'])
-
-
-class GroupSpeakersManager(models.Manager):
-    """
-    Limit to the speakers group.
-    """
-
-    def get_query_set(self):
-
-        try:
-            return super(GroupSpeakersManager, self).get_query_set().filter(
-                        user__groups__in = [
-                            Group.objects.get(
-                                pk=settings.AUTH_SPEAKERS_GROUP_ID)])
-        except Group.DoesNotExist:
-            return super(GroupSpeakersManager, self).get_query_set()
+        return super(StaffProfileManager, self).get_query_set().filter(
+            user__groups__name__in=
+            ['Staff','IT Staff','Web Team']
+            )
 
 
 class ActiveProfileManager(models.Manager):
@@ -85,19 +76,7 @@ class ActiveProfileManager(models.Manager):
     def get_query_set(self):
         return super(ActiveProfileManager, self).get_query_set().filter(user__is_active=True)
 
-class ActiveProfileExcludeAlumniManager(models.Manager):
-    """
-    Excludes people who are only alumni or not active.
-    """
 
-    def get_query_set(self):
-        """
-        Do a couple subqueries to only include staff, instructors and students
-        profiles, then make that part of the where clause. The outer parens are
-        necessary.
-        """
-        qset = super(ActiveProfileExcludeAlumniManager, self).get_query_set().extra(where=['(people_profile.user_id IN (SELECT profile_id FROM people_staff) OR people_profile.user_id IN (SELECT profile_id FROM people_student) OR people_profile.user_id IN (SELECT profile_id FROM people_instructor))'])
-        return qset.filter(user__is_active=True)
 
 class ActiveProfileAlumniManager(models.Manager):
     """
@@ -106,11 +85,9 @@ class ActiveProfileAlumniManager(models.Manager):
 
     def get_query_set(self):
         return super(ActiveProfileAlumniManager, self).get_query_set().filter(
-                        user__is_active=True).extra( where=[
-                            'people_profile.user_id IN \
-                            (SELECT profile_id FROM people_alumni)'])
-
-
+                user__is_active=True,
+                user__groups__name__in=['Alumni']
+            )
 
 
 
@@ -192,11 +169,9 @@ class Profile(BaseProfile):
 
     # Model Managers
     active_objects = ActiveProfileManager()
-    not_alumni_objects = ActiveProfileExcludeAlumniManager()
     alumni_objects = ActiveProfileAlumniManager()
     staff_objects = StaffProfileManager()
     emp_objects = EmployeeProfileManager()
-    group_speakers = GroupSpeakersManager()
 
 
     def __unicode__(self):

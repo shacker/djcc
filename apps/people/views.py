@@ -316,9 +316,9 @@ def profiles_list(request,template_name="people/directory.html"):
         contact_list = Profile.objects.all()        
        
 
-    # default is to exclude people who are only alumni
+    # default is all active users
     else:
-        contact_list = Profile.not_alumni_objects.all()
+        contact_list = Profile.active_objects.all()        
 
     # if keywords then confine search further
     if keywords:
