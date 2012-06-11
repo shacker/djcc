@@ -144,6 +144,10 @@ class Offering(models.Model):
         for u in self.students.all():
           all_members.add(u.id)
 
+        # Assigned instructors
+        for i in self.instructors.all():
+          all_members.add(i.profile.user.id)
+
         # additional queries here
 
         return User.objects.filter(pk__in=all_members)
