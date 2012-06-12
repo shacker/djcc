@@ -12,6 +12,7 @@ pygments
 django-debug-toolbar
 Werkzeug
 django-pagination
+django-tastypie
 
 
 # Manual installs

@@ -4,11 +4,21 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
+
+# API imports
+from courses.api import OfferingsResource
+
+
+course_offerings = OfferingsResource()
+
+
 import os, imp
 import utils
 
-# Use the Djang admin
+# Use the Django admin
 admin.autodiscover()
+
+
 
 urlpatterns = patterns('',
 
@@ -29,7 +39,7 @@ urlpatterns = patterns('',
     (r'^scheduler/', include('scheduler.urls')),        
     (r'^notifications/', include('notifications.urls')),
     (r'^library/', include('library.urls')),    
-
+    (r'^api/', include(course_offerings.urls)),
 
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -39,7 +49,8 @@ urlpatterns = patterns('',
     url(r'^json_users/$',
         utils.views.json_users,
         name='json_users'),
-    
+
+
     # Static pages
     url(r'^help/$', direct_to_template, {'template': 'static/help.html'},name='help',),
 )
