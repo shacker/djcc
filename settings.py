@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'postman',
     'pagination',
     'countries',
+    'tastypie',
     # 'debug_toolbar',
 
     # Our apps:
@@ -167,6 +168,7 @@ INSTALLED_APPS = (
     'scheduler',
     'notifications',
     'library',
+    
 )
 
 # Postman stuff

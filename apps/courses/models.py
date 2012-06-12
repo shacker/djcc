@@ -99,8 +99,6 @@ class Course(models.Model):
 
 
 
-
-
 class Offering(models.Model):
     '''A particular instance of a Course, held in a given semester'''
     course = models.ForeignKey(Course)
