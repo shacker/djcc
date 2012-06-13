@@ -4,19 +4,21 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
-
-# API imports
-from courses.api import OfferingsResource
-
-
-course_offerings = OfferingsResource()
-
-
+from tastypie.api import Api
 import os, imp
 import utils
 
+# API imports
+from api.api import OfferingsResource, PeopleResource
+cc_api = Api(api_name='cc')
+cc_api.register(OfferingsResource())
+cc_api.register(PeopleResource())
+
+
 # Use the Django admin
 admin.autodiscover()
+
+
 
 
 
@@ -39,7 +41,7 @@ urlpatterns = patterns('',
     (r'^scheduler/', include('scheduler.urls')),        
     (r'^notifications/', include('notifications.urls')),
     (r'^library/', include('library.urls')),    
-    (r'^api/', include(course_offerings.urls)),
+    (r'^api/', include(cc_api.urls)),
 
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
