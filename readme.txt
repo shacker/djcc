@@ -126,3 +126,11 @@ python manage.py syncdb
 python manage.py reset contenttypes # Needed to avoid import errors
 python manage.py loaddata all.json
 
+
+====
+
+Example API URLs - Note the hierarchical traversal from top level down
+
+See bottom of homepage after logging in for API examples.
+
+

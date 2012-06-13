@@ -3,6 +3,8 @@ from tastypie import fields
 from courses.models import Course, Offering
 from people.models import Profile
 from resources.models import Room
+from django.contrib.auth.models import User, Group
+
 
 
 class RoomsResource(ModelResource):
@@ -16,6 +18,7 @@ class CourseResource(ModelResource):
         resource_name = 'course'
 
 
+
 class OfferingsResource(ModelResource):
 	location = fields.ForeignKey(RoomsResource, 'location',full=True)
 	course = fields.ForeignKey(CourseResource, 'course',full=True)
@@ -23,9 +26,15 @@ class OfferingsResource(ModelResource):
 	class Meta:
 		queryset = Offering.objects.all()
 		resource_name = 'course_offerings'
+        excludes = ['grading',]
+
 
 
 class PeopleResource(ModelResource):
+    username = fields.CharField(attribute='user__username')
+    fullname = fields.CharField(attribute='get_display_name')
+
     class Meta:
         queryset = Profile.active_objects.all()
         resource_name = 'people'
+
