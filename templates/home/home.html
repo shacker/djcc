@@ -17,6 +17,23 @@
               You are part of the CalCentral Pilot. Help shape its future by <a class="s3d-regular-links" href="http://ets.berkeley.edu/calcentral-feedback" target="_blank">telling us what you what you think</a>.<br />
               To learn more about what CalCentral can do for you, visit <a class="s3d-regular-links" href="/~Help-and-Support">the Help and Support pages.</a>
             </p>
+
+            <h3>API Examples</h3>
+            <p>Using Tasty Pie for auto-generating JSON output - building blocks toward a public API.</p>
+
+
+            <p>Example API URLs - Note the hierarchical traversal from top level down</p>
+
+            <ul>
+                <li><a href="http://127.0.0.1:8000/api/cc/?format=json">All JSON feeds</a></li>
+            <li><a href="http://127.0.0.1:8000/api/cc/course_offerings/?format=json">All courses, paginated</a></li>
+            <li><a href="http://127.0.0.1:8000/api/cc/course_offerings/2/?format=json">A single course, with some Foreign Key fields resolved (location and parent course are sub-dicts)</a></li>
+            <li><a href="http://127.0.0.1:8000/api/cc/people/?format=json">All people, paginated</a></li>
+            <li><a href="http://127.0.0.1:8000/api/cc/people/3/?format=json">A single person, with some ForeignKey fields resolved (username is FK, full name is a model method)</a></li>
+            </ul>
+
+            <p>If you want XML output rather than JSON, use format=xml as url param instead
+                        (requires "pip install lxml")</p>
         </div>
     </div>
 
