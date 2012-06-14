@@ -34,6 +34,27 @@
 
             <p>If you want XML output rather than JSON, use format=xml as url param instead
                         (requires "pip install lxml")</p>
+
+
+            <h3>Model-once example</h3>
+
+            <p>
+                One of the huge wins of Django system is obsessively DRY data modeling. Data structures are defined once and only once in the system, resulting in massive productivity wins. For example, consider the simple News model. See the definition in apps/news/models.py. From this single model we get all of the following, with zero duplication of data structures, no possibility of data structures for one user not matching those of another, easy JSON and RSS output, a self-generating administrative interface, easily rendered page views, and native form field input validation with a minimum of code. The productivity gains are immense, and the possibilties of errors drastically reduced. 
+            </p>
+
+            <ul>
+                <li> <a href="{% url admin:news_story_changelist %}">Administrative interface</a> (requires superuser login). Note how field types are resolved to correct UI widgets automatically.</li>
+
+                <li> <a href="{% url news_story_list %}">List display</a> Trivial template work.</li>
+
+                <li> <a href="{% url news_story_detail 1 %}">Single object display</a> Trivial template work.</li>               
+
+                <li><a href="/api/cc/stories/?format=json">JSON feed</a> (see apps/api/api.py)</li>
+
+                <li><a href="/feeds/news/">RSS feed</a> (see apps/news/feeds.py)</li>
+
+            </ul>
+
         </div>
     </div>
 
