@@ -5,21 +5,20 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
 from tastypie.api import Api
+from news.feeds import LatestNews
 import os, imp
 import utils
 
 # API imports
-from api.api import OfferingsResource, PeopleResource
+from api.api import OfferingsResource, PeopleResource, NewsResource
 cc_api = Api(api_name='cc')
 cc_api.register(OfferingsResource())
 cc_api.register(PeopleResource())
+cc_api.register(NewsResource())
 
 
 # Use the Django admin
 admin.autodiscover()
-
-
-
 
 
 urlpatterns = patterns('',
@@ -43,6 +42,8 @@ urlpatterns = patterns('',
     (r'^library/', include('library.urls')),    
     (r'^api/', include(cc_api.urls)),
 
+    # RSS output for News items
+    (r'^feeds/news/$', LatestNews()),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),

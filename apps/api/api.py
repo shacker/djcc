@@ -3,6 +3,7 @@ from tastypie import fields
 from courses.models import Course, Offering
 from people.models import Profile
 from resources.models import Room
+from news.models import Story
 from django.contrib.auth.models import User, Group
 
 
@@ -38,3 +39,9 @@ class PeopleResource(ModelResource):
         queryset = Profile.active_objects.all()
         resource_name = 'people'
 
+
+class NewsResource(ModelResource):
+
+    class Meta:
+        queryset = Story.objects.all()
+        resource_name = 'stories'

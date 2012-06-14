@@ -119,7 +119,7 @@ use keys 'c' or 'n' to continue or go to next.
 
 Export and import a fully working data set, avoiding the contenttypes problem
 
-python manage.py dumpdata --all --indent 4 --ensure_ascii=False > all.json
+python manage.py dumpdata --all --indent 4 --ensure_ascii=False > data/all.json
 #switch settings to new db, or on a fresh machine
 python manage.py syncdb
 # Dont create a superuser if the dataset you're about to import already has one
