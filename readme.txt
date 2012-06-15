@@ -5,7 +5,7 @@ Scot Hacker: shacker at berkeley dot edu
 SETUP AND WORKFLOW
 ====================
 
-# Initial setup (Assuming you're using the included sqlite db):
+# Initial setup
 
 sudo easy_install pip   # If you don't have pip already
 pip install virtualenvwrapper   # If you don't have virtualenv already
@@ -20,10 +20,10 @@ pip install -r requirements.txt
 https://github.com/shacker/djcc/wiki/Sample-local_settings.py
 # Edit that file to match your setup (see below on database options).
 
-# Now:
+Now:
 cp djcc/manage.py .
 
-# You can either start with an empty dataset, or start with sample data.
+# You can either start with an empty dataset, or use provided sample data.
 # Scot can provide sample data (request from shacker@berkeley.edu).
 # Place the sample data in djcc/djcc/data/all.json, then create initial tables with:
 
@@ -36,9 +36,6 @@ python manage.py createsuperuser
 
 # Now load up the sample data:
 python manage.py loaddata djcc/data/all.json
-
-# See below for more on working with data.
-
 
 # Daily workflow:
 
@@ -84,7 +81,6 @@ python manage.py loaddata djcc/data/all.json
 MISC NOTES...
 
 Unlike OAE, the Django console should be run in the foreground, not background - it refreshes itself in seconds, and output is always visible.
-
 
 Make sure mysql is set to create tables and fields as utf8. Running this query after db creation will ensure that all future tables and fields are set correctly by default:
 ALTER DATABASE [dbname] CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -139,9 +135,5 @@ use keys 'c' or 'n' to continue or go to next.
 
 =====
 
-
-Example API URLs - Note the hierarchical traversal from top level down
-
-See bottom of homepage after logging in for API examples.
-
+See bottom of homepage after logging in for API and "model once" examples.
 
