@@ -1,20 +1,9 @@
 DJCC: Personal experimental Django implementation of a possible CalCentral.
 Scot Hacker: shacker at berkeley dot edu
 
-=====
-SETUP
-=====
-
-For quick-start simplicity, this distro comes with a pre-loaded data
-set in sqlite3 format, so there's no need to install a database engine
-or db bindings for Python. You'll just need pip and a few depencies
-installed via pip.
-
-Also for simplicity: This repo includes a
-local_settings.py that will need to be edited to match your setup.
-Normally, local_settings.py would not be part of a shared repo and
-each user would create their own (it overrides global settings in
-settings.py)
+====================
+SETUP AND WORKFLOW
+====================
 
 # Initial setup (Assuming you're using the included sqlite db):
 
@@ -25,9 +14,31 @@ workon djcc
 cdvirtualenv
 git clone https://github.com/shacker/djcc.git
 pip install -r requirements.txt
-# Modify paths in local_settings.py
+
+# You'll need a local_settings.py containing the settings specific
+# to your machine. Get a starter version at:
+https://github.com/shacker/djcc/wiki/Sample-local_settings.py
+# Edit that file to match your setup (see below on database options).
+
+# Now:
 cp djcc/manage.py .
-python manage.py createsuperuser	# Create a superuser login for yourself
+
+# You can either start with an empty dataset, or start with sample data.
+# Scot can provide sample data (request from shacker@berkeley.edu).
+# Place the sample data in djcc/djcc/data/all.json, then create initial tables with:
+
+python manage.py syncdb
+
+# Create a superuser login for yourself if you know there's not going to be one
+# in the sample data you'll be loading:
+
+python manage.py createsuperuser
+
+# Now load up the sample data:
+python manage.py loaddata djcc/data/all.json
+
+# See below for more on working with data.
+
 
 # Daily workflow:
 
@@ -38,24 +49,35 @@ python manage.py runserver
 visit: http://127.0.0.1:8000/
 visit: http://127.0.0.1:8000/admin
 
-=====
+====================
+WORKING WITH DATA
+====================
+
+Data can be migrated between mysql, postgres, or sqlite (or other dbs supported by Django).
+Please do not check your json data into the repo until it's fully anonymous.
+
+Use sqlite if you don't already have a running mysql or postgres installation and want
+to make setup as easy as possible. I'm thinking we'll probably settle on postgres.
+
+To export your db-neutral data set, avoiding issues with contenttypes via natural keys:
+
+python manage.py dumpdata --all --natural  > djcc/data/all.json
+
+
+# If switching to a different db, edit your local_settings.py to reference the new db, then:
+python manage.py syncdb
+
+# When it asks, go ahed and create a superuser account yourself, UNLESS you know
+# that the dataset you're about to import already has one for you.
+
+# Now reset the contenttypes table, since it's about to recreated with possibly different keys:
+python manage.py reset contenttypes
+
+# Now you can safely load the data set into a new db:
+python manage.py loaddata djcc/data/all.json
 
 # If you want to use mysql or another db, configure local_settings.py, then
 # then import sample data. Something like:
-
-DATABASES = {
-     'default': {
-         'NAME': 'djcc',
-         'ENGINE': 'django.db.backends.mysql',
-         'USER': 'shack',
-         'PASSWORD': 'foo',
-         'HOST': '',
-     }
- }
-
-
-gunzip data/djcc1.json.gz
-python manage.py loaddata data/djcc1.json
 
 
 =====================
@@ -117,17 +139,6 @@ use keys 'c' or 'n' to continue or go to next.
 
 =====
 
-Export and import a fully working data set, avoiding the contenttypes problem
-
-python manage.py dumpdata --all --indent 4 --ensure_ascii=False > data/all.json
-#switch settings to new db, or on a fresh machine
-python manage.py syncdb
-# Dont create a superuser if the dataset you're about to import already has one
-python manage.py reset contenttypes # Needed to avoid import errors
-python manage.py loaddata all.json
-
-
-====
 
 Example API URLs - Note the hierarchical traversal from top level down
 
