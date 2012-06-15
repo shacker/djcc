@@ -1,0 +1,36 @@
+{% extends "shells/base.html" %}
+
+{% block title %}
+{{shell.title}}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="grid_9 ">
+
+
+        <h2>About "{{shell.title}}"</h2>
+
+        <p>{{shell.description|safe}}  </p>
+
+        <p>This project was created by:</p>
+        <ul>
+        {% for m in members  %}
+           <li><a href="{% url profile_detail m.username %}">{{m.first_name}} {{m.last_name}}</a> </li>
+        {% endfor %}
+        </ul>
+
+        <p>As part of the Knight Digital Media Center's <a href="{% url workshops_detail shell.project.workshop.id %}">{{shell.project.workshop}}</a> workshop.</p>
+
+        <p>See <a href="{% url workshop_projects %}#wkshp-{{shell.project.workshop.id}}">more projects</a> from this workshop.</p>
+
+        <p><a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangopowered126x54.gif" border="0" alt="Powered by Django." title="Powered by Django." /></a></p>
+
+
+	</div>
+
+    {% include "shells/nav.html" %}
+
+
+{% endblock %}

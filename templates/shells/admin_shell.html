@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/admin_shells.css" />
+    <script src="{{ STATIC_URL}}js/jquery/jquery.tablednd_0_5.js" type="text/javascript"></script>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div id="content" class="grid_8">
+
+{# Re-usable include for status messages #}
+{% include 'inlines/messages.html' %}
+
+{# Main shell attributes #}
+
+<h2>Editing Shell "{{shell}}"</h2>
+
+<p class="intro">A shell is a collection of pages.<br /> Each page can contain any assortment of text and media. </p>
+
+
+<h3><a class="revealer" id="reveal" href="#">&raquo; Edit shell attributes (banner, colors, etc.)</a></h3>
+
+
+{% if shell.page_set.all.count > 0 %}
+    <h3><a id="" href="{% url shell_home shell.slug %}" target="_blank">&raquo; Launch shell in new tab</a></h3>
+{% endif %}
+
+
+<h3><a id="" href="{% url shells_admin_new_page shell.id %}">&raquo; Add new page</a></h3>
+{% if shell.page_set.all.count < 1 %}
+    <p style="margin-left:17px;">You must create at least one page before you can view your project.</p>
+{% endif %}
+
+<form class="pageform" id="shell_attribs" enctype="multipart/form-data" action="" method="post" accept-charset="utf-8">
+	{% csrf_token %}
+
+    <p>
+        <label>{{shellform.title.label}}</label>
+        <span class="help_text">{{shellform.title.help_text|safe}}</span>
+        {{shellform.title}}
+
+    </p>
+
+    <p>
+        <label>{{shellform.description.label}}</label>
+        <span class="help_text">{{shellform.description.help_text|safe}}</span>
+        {{shellform.description}}<br />
+
+    </p>
+
+    <p>
+        <label>{{shellform.icon.label}}</label>
+        <span class="help_text">{{shellform.icon.help_text|safe}} </span><br />
+        {{shellform.icon}}<br />
+
+         {% if shell.icon %}
+            <a href="{{MEDIA_URL}}{{shell.icon}}"><img src="{{MEDIA_URL}}{{shell.icon}}" width="75" height="75" /></a>
+            {% else %}
+            <img src="{{STATIC_URL}}img/question.png" width="75" height="75">
+        {% endif %}
+
+    </p>
+
+
+    <p>
+        <label>{{shellform.bannerimg.label}}</label>
+        <span class="help_text">{{shellform.bannerimg.help_text|safe}} </span><br />
+        {{shellform.bannerimg}}<br />
+
+         {% if shell.bannerimg %}
+            <a href="{{MEDIA_URL}}{{shell.bannerimg}}"><img src="{{MEDIA_URL}}{{shell.bannerimg}}" width="500" /></a>
+            {% else %}
+            <img src="{{STATIC_URL}}img/question.png" width="75" height="75">
+        {% endif %}
+
+    </p>
+
+    <p>
+        <label>{{shellform.palette.label}}</label>
+        {{shellform.palette}}<br />
+        <span class="help_text">{{shellform.palette.help_text|safe}}</span>
+    </p>
+
+    <input class="button blue" type="submit" value="Save" style="margin-top:10px;" />
+</form>
+
+{# End main shell attributes #}
+
+<h2 style="margin-top:20px; margin-bottom:20px;">
+	{% if shell.page_set.all.count > 0 %}
+		Pages (drag arrows to re-order):
+	{% else %}
+		To begin, edit shell attributes, then click Add New Page.
+	{% endif %}
+
+</h2>
+
+<table id="pagetable">
+    {% for p in pages  %}
+    <tr id="{{ p.id }}" class="{% cycle 'even' 'odd' %}" >
+        <td class="dragHandle showDragHandle">&nbsp;</td>
+        <td>
+            <h3 style="padding-left:20px;">
+                <a href="{% url shells_admin_page p.id %}">
+                {{p.title}}</a>
+            </h3>
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+
+function order_pages(data) {
+    // The JQuery plugin tableDnD provides a serialize() function which provides the re-ordered
+    // data in a list. We pass that list as an object called "data" to a Django view
+    // to save the re-ordered data into the database.
+
+    $.post("{% url shells_reorder_pages %}", data, "json");
+    return False;
+};
+
+$(document).ready(function(){
+
+    // Initially hide all main forms
+    $('form.pageform').hide();
+
+    // Show/hide edit fields
+    $("a#reveal").click(function () {
+      $("form#shell_attribs").slideToggle();
+    });
+
+    // Initialise the task table for drag/drop re-ordering
+    $("#pagetable").tableDnD();
+
+    $('#pagetable').tableDnD({
+        onDrop: function(table, row) {
+            order_pages($.tableDnD.serialize());
+        },
+        dragHandle: "dragHandle"
+    });
+
+
+
+
+});
+</script>
+
+{% endblock %}
+

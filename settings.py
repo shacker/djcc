@@ -164,11 +164,12 @@ INSTALLED_APPS = (
     'news',
     'utils',
     'worlds',
+    'shells',
     'dynlists',
     'scheduler',
     'notifications',
     'library',
-    
+
 )
 
 # Postman stuff

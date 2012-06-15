@@ -1,0 +1,34 @@
+{% extends "shells/base.html" %}
+{% load inlines %}
+{# shell inlines are calculated in apps/tutorials/mediaobjects.py #}
+{# media processing template is at templates/inlines/media.html #}
+
+{% block title %}
+{{page.title}}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="grid_9 ">
+		{% comment %}
+			Show page title above content on all pages
+			but homepage ("Homepage" is a stupid headline)
+		{% endcomment %}
+
+        {% if not page == page.shell.get_shell_home %}
+        <h2>{{page.title}}</h2>
+        {% endif %}
+
+        {% if page %}
+            {% process_inlines page.body as body %}
+            {{body|safe}}
+        {% else %}
+            <h3>Sorry, no content is available for this shell.</h3>
+        {% endif %}
+
+	</div>
+
+    {% include "shells/nav.html" %}
+
+{% endblock %}

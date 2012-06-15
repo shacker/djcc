@@ -1,0 +1,71 @@
+<div class="grid_3 sidebar">
+
+{% comment %}
+For Projects, we always show a list of all pages in the system
+as nav icons.
+
+For  Topics, we show a column of widgets in the sidebar
+of the homepage instead of the stack of nav icons, and normal
+nav icons on inner pages.
+
+We can tell if it's a Project or a Topic by whether the page has
+widgets (Projects don't have widgets.)
+
+So:
+
+	if this is the homepage and widgets available
+			show widgets but no nav
+	else
+		show nav, then widgets
+
+{% endcomment %}
+
+
+{% if page == page.shell.get_shell_home and widgets %}
+
+		{% for w in widgets %}
+		<div class="shellwidget">
+		    {% if w.show_title %}<span class="navlabel">{{w.title}}</span><br />{% endif %}
+		    {{w.code|safe}}
+		</div>
+		{% endfor %}
+
+
+{% else %}
+	{% for p in related_pages  %}
+        <div class="pagethumbs">
+
+    {% ifequal p.shownavlabel 1 %}
+        <div class="navlabel"> {{p.title}}</div>
+    {% endifequal %}
+
+    {% if p.disable_icon %}
+        <div class="navlabel"><a href="{% url shell_page p.shell.slug p.slug %}">{{p.title}}</a></div>
+    {% else %}
+        <a href="{% url shell_page p.shell.slug p.slug %}"
+        {% if p.icon_alt %}
+        onmouseover="roll('{{p.slug}}', '{{MEDIA_URL}}{{p.icon_alt}}')" onmouseout="roll('{{p.slug}}', '{{MEDIA_URL}}{{p.icon}}')"
+        {% endif %}
+        ><img src="{% if p.icon %}{{MEDIA_URL}}{{ p.icon }}{% else %}{{STATIC_URL}}shells/img/default-section-icon.png{% endif %}"  name="{{p.slug}}" />
+        </a>
+    {% endif %}
+        </div>
+    {% endfor %}
+
+	{% for w in widgets %}
+	<div class="shellwidget">
+	    {% if w.show_title %}<span class="navlabel">{{w.title}}</span><br />{% endif %}
+	    {{w.code|safe}}
+	</div>
+	{% endfor %}
+
+{% endif %}
+
+
+
+
+
+</div>
+
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="{{shell.description|striptags}}">
+    <title>{% block title %}{% endblock %} &raquo; KDMC Workshops</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}shells/css/reset.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}shells/css/text.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}shells/css/960.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}shells/css/styles.css" />
+    <script src="{{STATIC_URL}}js/swfobject.js" type="text/javascript"></script>
+    <link rel="icon" href="{{STATIC_URL}}icons/favicon.png" type="image/png" title="Knight Digital Media Center" />
+
+
+    <style type="text/css" media="screen">
+        body {
+            background-color:#{{palette.bodycolor}};
+        }
+        .container_12 {
+            background-color:#{{palette.contentareabgcolor}};
+        }
+        p {
+            color:#{{palette.textcolor}};
+        }
+
+        h1,h2,h3,h4,h5,h6,.navlabel {
+            color:#{{palette.headlinecolor}};
+        }
+
+
+        a {
+            color:#{{palette.linkcolor}};
+            font-weight:bold;
+        }
+
+        a:visited {
+            color:#{{palette.vlinkcolor}};
+            font-weight:bold;
+        }
+
+
+        .strip {
+            background-color:#{{palette.divcolor}};
+
+        }
+
+        .strip h1, .strip h5 a {
+            color:#{{palette.divtextcolor}};
+        }
+
+    </style>
+
+    <script type="text/javascript">
+    <!--
+
+    function roll(img_name, img_src)
+       {
+       document[img_name].src = img_src;
+       }
+
+    //-->
+    </script>
+
+</head>
+<body>
+
+<div class="container_12">
+	<div class="grid_12 strip">
+    	<h1>
+    		{{shell.title}} &raquo; KDMC Workshops
+    	</h1>
+	</div>
+
+	<div class="grid_12" id="bannerimg">
+	    {% if shell.bannerimg %}
+	        <a href="{% url shell_home shell.slug %}"><img src="{{MEDIA_URL}}{{shell.bannerimg}}"></a>
+	    {% else %}
+	        <a href="{% url shell_home shell.slug %}"><img src="{{STATIC_URL}}shells/img/default-banner.png"></a>
+	    {% endif %}
+
+	</div>
+
+	<div class="clear"></div>
+
+    {% block content %}{% endblock %}
+
+	<div class="clear"></div>
+
+	<div class="grid_12 strip stripbottom">
+    	<h5 class="stripalignleft"><a href="/">Knight Digital Media Center</a> </h5>
+    	<h5 class="stripalignright"><a href="{% url shell_about shell.slug %}">About this Project</a></h5>
+	</div>
+</div>
+
+
+</body>
+</html>

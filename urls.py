@@ -31,15 +31,16 @@ urlpatterns = patterns('',
 
     (r'^profiles/', include('people.urls')),
     (r'^messages/', include('postman.urls')),
-    (r'^dashboard/', include('dashboard.urls')),    
+    (r'^dashboard/', include('dashboard.urls')),
     (r'^news/', include('news.urls')),
     (r'^courses/', include('courses.urls')),
     (r'^programs/', include('courses.program_urls')),
     (r'^worlds/', include('worlds.urls')),
-    (r'^dynlists/', include('dynlists.urls')),    
-    (r'^scheduler/', include('scheduler.urls')),        
+    (r'^dynlists/', include('dynlists.urls')),
+    (r'^scheduler/', include('scheduler.urls')),
     (r'^notifications/', include('notifications.urls')),
-    (r'^library/', include('library.urls')),    
+    (r'^library/', include('library.urls')),
+    (r'^shells/', include('shells.urls')),
     (r'^api/', include(cc_api.urls)),
 
     # RSS output for News items
@@ -47,7 +48,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    
+
     # Misc utils
     url(r'^json_users/$',
         utils.views.json_users,

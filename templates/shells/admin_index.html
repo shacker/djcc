@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div id="content" class="grid_8">
+
+<h2>Shell Editor for KDMC Fellows</h2>
+
+<p class="intro">Fellows in some KDMC training programs are able to create multimedia packages we call "shells" or "topic pages." Please begin by selecting your team's topic.</p>
+
+<p>These are the shells you have permission to edit. Click a shell to begin.</p>
+
+<fieldset id="shells" class="">
+    <legend>Your Shell</legend>
+
+    {% for shell in shells  %}
+        <h3><a href="{% url shells_admin_shell shell.slug %}">{{shell}}</a></h3>
+    {% endfor %}
+</fieldset>
+
+
+
+
+</div>
+
+{% endblock %}
+

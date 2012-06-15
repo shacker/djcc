@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Palette Viewer</title>
+
+	<style type="text/css" media="screen">
+	   body {
+	       margin:50px;
+	       border: 1px solid #999;
+	       background-color:#E9E9E9;
+	       font-family:Arial;
+	   }
+
+	   h1 {
+	       font-size:18px;
+	   }
+
+	   h2 {
+	       font-size:16px;
+	       margin-bottom:5px;
+	       margin-top:25px;
+	       color:#424242;
+	   }
+
+	   #content {
+	       background-color:#FBFBFB;
+         padding:10px;
+	   }
+
+	   table {
+	       margin:0px;
+	       padding:0px;
+	       border-collapse:collapse;
+	   }
+
+       td {
+           margin:0px;
+	       padding:0px;
+       }
+	   td.square {
+	       width:150px;
+	       height:150px;
+	   }
+
+	   td.legend {
+	       width:150px;
+	       color:#334C77;
+	       font-weight:bold;
+	       text-align:center;
+
+	   }
+
+	   td.hex {
+           text-align:center;
+           font-size:0.8em;
+	   }
+	</style>
+</head>
+
+<body>
+<div id="content">
+
+
+<table border="0" cellspacing="5" cellpadding="5">
+<tr>
+    <td style="width:170px;">&nbsp;</td>
+
+    <td class="legend">Content area</td>
+    <td class="legend">Normal text</td>
+    <td class="legend">Body/background</td>
+    <td class="legend">Top/bottom divs</td>
+    <td class="legend">Headlines</td>
+    <td class="legend">Unvisited links</td>
+    <td class="legend">Visited links</td>
+</tr>
+</table>
+
+{% for p in palettes  %}
+    <h2>{{p}}
+    {% if p.default_pal %}
+        - Default Palette
+    {% endif %}
+    </h2>
+
+    <table border="0" >
+        <tr>
+
+            <td>
+                <table border="0" style="width:150px;height:150px;margin:0px;padding:0px;margin-right:5px">
+                    <tr>
+                        <td style="background-color:#{{p.bodycolor}};width:15px;"></td>
+                        <td style="background-color:#{{p.contentareabgcolor}}">
+                            <table border="0" >
+                                <tr style="vertical-align:top;">
+                                    <td style="background-color:#{{p.divcolor}};width:118px;font-size:0.8em;color:#{{p.headlinecolor}};vertical-align:top;">Project Name</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#{{p.contentareabgcolor}};font-size:0.6em;">
+                                        <p style="color:#{{p.textcolor}}">Lorem <a href="#" style="color:#{{p.linkcolor}}">ipsum</a> dolor sit amet, consectetur adipisicing elit</p>
+                                        <p style="color:#{{p.textcolor}}">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                                        <p style="color:#{{p.textcolor}}">Lorem ipsum dolor sit amet,</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color:#{{p.divcolor}}">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="background-color:#{{p.bodycolor}};width:15px;"></td>
+                    </tr>
+                </table>
+            </td>
+
+
+            <td  class="square" style="background-color:#{{p.contentareabgcolor}}">&nbsp;</td>
+            <td  class="square" style="background-color:#{{p.textcolor}}">&nbsp;</td>
+            <td class="square" style="background-color:#{{p.bodycolor}}">&nbsp;</td>
+            <td  class="square" style="background-color:#{{p.divcolor}}">&nbsp;</td>
+            <td  class="square" style="background-color:#{{p.headlinecolor}}">&nbsp;</td>
+            <td  class="square" style="background-color:#{{p.linkcolor}}">&nbsp;</td>
+            <td  class="square" style="background-color:#{{p.vlinkcolor}}">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+
+            <td class="hex">#{{p.contentareabgcolor}}</td>
+            <td class="hex">#{{p.textcolor}}</td>
+            <td class="hex">#{{p.bodycolor}}</td>
+            <td class="hex">#{{p.divcolor}}</td>
+            <td class="hex">#{{p.headlinecolor}}</td>
+            <td class="hex">#{{p.linkcolor}}</td>
+            <td class="hex">#{{p.vlinkcolor}}</td>
+        </tr>
+    </table>
+
+
+
+{% endfor %}
+
+</div></body>
+</html>

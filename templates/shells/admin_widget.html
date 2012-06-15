@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{# This template is used for both editing and adding media #}
+
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/admin_shells.css" />
+    <script type="text/javascript" src="{{STATIC_URL}}js/tiny_mce/tiny_mce.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="content" class="grid_8">
+
+{# Re-usable include for status messages #}
+{% include 'inlines/messages.html' %}
+
+
+
+{% if widget_obj %}
+    <h2>Editing widget "{{widget_obj}}"</h2>
+{% else %}
+    <h2>Creating new widget for page "{{page}}"</h2>
+{% endif %}
+
+<input id="page_return" class="button" type="submit" value="Return to page editor" style="margin:20px 0px;width:600px;" />
+
+
+<form class="pageform" enctype="multipart/form-data" action="" method="post" accept-charset="utf-8">
+	{% csrf_token %}
+
+
+    <p>
+        <label>{{form.title.label}}</label>
+        {{form.title}}
+        <span class="help_text">{{form.title.help_text|safe}}</span>
+    </p>
+
+    <p>
+        <label>{{form.show_title.label}}</label>
+        {{form.show_title}}
+        <span class="help_text">{{form.show_title.help_text|safe}}</span>
+    </p>
+
+    <p>
+        <label>{{form.code.label}}</label>
+        {{form.code}}<br />
+        <span class="help_text">{{form.code.help_text|safe}}</span>
+    </p>
+
+
+    <input class="button blue" type="submit" value="Save" style="margin-top:10px;" />
+
+
+</form>
+
+{% if widget_obj %}
+    <p class="alert" style="margin-left:20px;"><a href="javascript:confirmDelete('{% url admin_delete_widget widget_obj.id %}')">&#x2326; Delete this media</a></p>
+{% endif %}
+
+</div>
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+// Get confirmation before deleting story
+function confirmDelete(delUrl) {
+  if (confirm("Are you sure you want to delete this widget?")) {
+    document.location = delUrl;
+  }
+}
+
+$(document).ready(function(){
+
+    {# Can't reverse URL back to page if creating new widget since we don't yet have a widget. #}
+    {% if widget_obj %}
+        $("#page_return").click(function() {
+            window.location.href = '{% url shells_admin_page widget_obj.page.id %}';
+        });
+    {% else %}
+        $("#page_return").click(function() {
+            window.location.href = '{% url shells_admin_page page.id %}';
+        });
+    {% endif %}
+
+});
+</script>
+
+
+
+{% endblock %}
+
