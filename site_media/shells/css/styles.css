@@ -29,7 +29,12 @@ p {
 
 #bannerimg {
     margin-left:0px;
-    padding-right:20px;    
+    padding-right:20px;
+}
+
+div#bannerimg a img {
+    width:960px;
+    height:140px;
 }
 
 .leadart {
@@ -52,7 +57,7 @@ p {
     text-align:left;
     padding-left:10px;
     font-weight:normal;
-    
+
 }
 
 .strip h1, .strip h5 a {
@@ -69,7 +74,7 @@ p {
 .stripalignleft {
     float:left;
     padding-left:10px;
-    
+
 }
 
 ul li {
@@ -83,16 +88,23 @@ ul li {
     margin-top:10px;
 }
 
+
+.pagethumbs img {
+    width:215px;
+    height:125px;
+}
+
+
 .caption {
     display:block;
     font-style:italic;
 /*    margin-top:-15px;*/
-    
+
 }
 
 .shellwidget {
     margin-top:15px;
-    
+
 }
 
 img.alignleft {
