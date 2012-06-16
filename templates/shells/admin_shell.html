@@ -12,28 +12,31 @@
 
 <div id="content" class="grid_8">
 
-{# Re-usable include for status messages #}
-{% include 'inlines/messages.html' %}
 
 {# Main shell attributes #}
 
 <h2>Editing Shell "{{shell}}"</h2>
 
-<p class="intro">A shell is a collection of pages.<br /> Each page can contain any assortment of text and media. </p>
+<p class="intro">
+    A shell is a collection of pages.<br />
+    You can arrange your pages in any order.
+
+{% if shell.page_set.all.count < 1 %}
+    <br />You must create at least one page before you can view your project.
+{% endif %}
+</p>
 
 
-<h3><a class="revealer" id="reveal" href="#">&raquo; Edit shell attributes (banner, colors, etc.)</a></h3>
+<ul class="nobullets">
+    <li><a class="revealer" id="reveal" href="#">&raquo; Edit shell attributes (title, banner, colors)</a></li>
 
+
+    <li><a id="" href="{% url shells_admin_new_page shell.id %}">&raquo; Add new page</a></li>
 
 {% if shell.page_set.all.count > 0 %}
-    <h3><a id="" href="{% url shell_home shell.slug %}" target="_blank">&raquo; Launch shell in new tab</a></h3>
+    <li><a id="" href="{% url shell_home shell.slug %}" target="_blank">&raquo; Launch shell in new tab</a></li>
 {% endif %}
-
-
-<h3><a id="" href="{% url shells_admin_new_page shell.id %}">&raquo; Add new page</a></h3>
-{% if shell.page_set.all.count < 1 %}
-    <p style="margin-left:17px;">You must create at least one page before you can view your project.</p>
-{% endif %}
+</ul>
 
 <form class="pageform" id="shell_attribs" enctype="multipart/form-data" action="" method="post" accept-charset="utf-8">
 	{% csrf_token %}
@@ -42,14 +45,12 @@
         <label>{{shellform.title.label}}</label>
         <span class="help_text">{{shellform.title.help_text|safe}}</span>
         {{shellform.title}}
-
     </p>
 
     <p>
         <label>{{shellform.description.label}}</label>
         <span class="help_text">{{shellform.description.help_text|safe}}</span>
         {{shellform.description}}<br />
-
     </p>
 
     <p>
@@ -62,7 +63,6 @@
             {% else %}
             <img src="{{STATIC_URL}}img/question.png" width="75" height="75">
         {% endif %}
-
     </p>
 
 
@@ -76,7 +76,6 @@
             {% else %}
             <img src="{{STATIC_URL}}img/question.png" width="75" height="75">
         {% endif %}
-
     </p>
 
     <p>
@@ -90,24 +89,23 @@
 
 {# End main shell attributes #}
 
-<h2 style="margin-top:20px; margin-bottom:20px;">
+<h3>
 	{% if shell.page_set.all.count > 0 %}
-		Pages (drag arrows to re-order):
+		Pages in this shell (drag arrows to re-order):
 	{% else %}
 		To begin, edit shell attributes, then click Add New Page.
 	{% endif %}
-
-</h2>
+</h3>
 
 <table id="pagetable">
     {% for p in pages  %}
     <tr id="{{ p.id }}" class="{% cycle 'even' 'odd' %}" >
         <td class="dragHandle showDragHandle">&nbsp;</td>
         <td>
-            <h3 style="padding-left:20px;">
+            <p>
                 <a href="{% url shells_admin_page p.id %}">
                 {{p.title}}</a>
-            </h3>
+            </p>
         </td>
 
     </tr>

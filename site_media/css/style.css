@@ -29,6 +29,10 @@ ul {
     padding-left: 30px;
 }
 
+ul.nobullets {
+    list-style:none;
+}
+
 li {
     line-height: 130%;
 }
@@ -79,11 +83,11 @@ h3 {
 
 #container {
     width: 990px;
-    margin: 0 auto;    
+    margin: 0 auto;
     padding: 10px 0px 0px 0px;
 }
 
-#container2 {                                       
+#container2 {
     float: left;
     width: 960px;
     padding: 0px 15px;
@@ -93,7 +97,7 @@ h3 {
 
 #header {
     background: url('/static/images/calcentral_masthead_landing.png') no-repeat scroll top left;
-    
+
     width: 960px;
     height: 90px;
     margin: 0px;
@@ -174,7 +178,7 @@ blockquote {
 form {
     margin: 17px 0px 17px 0px;
     padding: 10px 20px 10px 20px;
-    background-color: #f5f5f5; 
+    background-color: #f5f5f5;
 /*  width: 80%;*/
 }
 
@@ -191,7 +195,7 @@ input[type='text'] {
 }
 
 .formbutton {
-    background: #e5e5e5;    
+    background: #e5e5e5;
     padding: 5px 25px 5px 25px;
 }
 
@@ -207,6 +211,7 @@ textarea {
     font-family: arial, helvetica, sans-serif;
     font-size: 14px;
     color: #1e1e1e;
+    display:block;
 }
 
 #sidebar {
@@ -237,7 +242,7 @@ textarea {
 #sidebar .links li a, #sidebar .links li a:visited, #sidebar .links li a:active {
     width: 190px;
     display: block;
-    margin: 0px 0px 0px 0px; 
+    margin: 0px 0px 0px 0px;
     text-decoration: none;
     color: #0000ff;
 }
@@ -289,6 +294,16 @@ textarea {
 
 /* MESSAGES & ERRORS */
 
+.intro, #intro {
+    display:block;
+    padding:10px;
+    color:#424242;
+    font-size:18px;
+    border:1px solid #E8E8E8;
+    font-weight:normal;
+    font-style:italic;
+}
+
 .alert {
     margin-top:15px;
     background-color:#E8E8E8;
@@ -314,16 +329,16 @@ ul#messagelist li {
 }
 
 ul#messagelist li.success {
-    background: #ffc url(/static/images/icon_success.gif) 5px .3em no-repeat;
+    background: #ffc url(/static/icons/icon_success.gif) 5px .3em no-repeat;
 }
 
 
 ul#messagelist li.error {
-    background: #ffc url(/static/images/icon_error.gif) 5px .3em no-repeat;
+    background: #ffc url(/static/icons/icon_error.gif) 5px .3em no-repeat;
 }
 
 ul#messagelist li.info {
-    background: #ffc url(/static/images/icon_alert.gif) 5px .3em no-repeat;
+    background: #ffc url(/static/icons/icon_alert.gif) 5px .3em no-repeat;
 }
 
 /* END MESSAGES & ERRORS */
@@ -390,6 +405,11 @@ textarea, input[] {
     width:150px;
 }
 
+label {
+    font-weight:bold;
+    font-size:1.1em;
+}
+
 
 /* END FORM INPUTS */
 
@@ -417,7 +437,7 @@ textarea, input[] {
     padding:10px;
     background-color:#F5F5F5;
     color:#464646;
-	-webkit-border-radius: .5em; 
+	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	-webkit-box-shadow: 0 1px 2px rgba(#353799);

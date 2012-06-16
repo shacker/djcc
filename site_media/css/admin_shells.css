@@ -1,0 +1,64 @@
+
+
+form p {
+    padding-bottom:20px;
+}
+
+input {
+    display:block;
+}
+
+.help_text {
+    font-size:0.9em;
+    width:500px;
+}
+
+table#pagetable  {
+    width:600px;
+}
+
+table#widgettable  {
+    width:500px;
+}
+
+table#pagetable tr td, table#widgettable tr td  {
+    border:0px;
+}
+
+table#pagetable tr td p {
+    font-weight:bold;
+    margin-left:10px;
+}
+
+
+/*Stripey tables*/
+tr.odd {
+    background-color:#FAFAFA;
+}
+
+tr.even {
+    background-color:#EBEBEB;
+}
+
+td.dragHandle {
+    width:25px;
+    border:0px;
+}
+
+td.showDragHandle {
+    width:25px;
+    border:0px;
+	background-image: url(/static/icons/updown.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: move;
+}
+
+.medialist {
+    font-size:1.1em;
+}
+
+#id_width, #id_height {
+    width:50px;
+    display:inline;
+}

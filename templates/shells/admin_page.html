@@ -10,29 +10,22 @@
 
 {% block content %}
 
-
-
 <div id="content" class="grid_8">
-
-{# Re-usable include for status messages #}
-{% include 'inlines/messages.html' %}
-
-
 
 {% if page %}
     <h2>Editing Page "{{page}}"</h2>
+    {# Duplicate link code here is a bit of a cop-out #}
+    <p><a href="{% url shells_admin_shell page.shell.slug %}" class="button blue">Return to shell editor</a></p>
 {% else %}
     <h2>Creating new page in shell "{{shell}}"</h2>
+    <p><a href="{% url shells_admin_shell shell.slug %}" class="button blue">Return to shell editor</a></p>
 {% endif %}
 
 
 
-<input id="shell_return" class="button" type="submit" value="Return to shell editor" style="margin:20px 0px;width:600px;" />
 
-
-<form class="pageform" enctype="multipart/form-data" action="" method="post" accept-charset="utf-8">
+<form enctype="multipart/form-data" action="" method="post" accept-charset="utf-8">
 	{% csrf_token %}
-
 
     <p>
         <label>{{form.title.label}}</label>

@@ -1,0 +1,132 @@
+body {
+	background: #123;
+	color: #333;
+	font-size: 11px;
+	padding: 0px 0 40px;
+}
+
+a {
+	color: #364182;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+
+p {
+	overflow: hidden;
+	font-size:1.3em;
+}
+
+.container_12 {
+	background: #fff;
+	margin-bottom: 20px;
+}
+
+
+#bannerimg {
+    margin-left:0px;
+    padding-right:20px;    
+}
+
+.leadart {
+    margin-top:10px;
+}
+
+.strip {
+    background-color:#2D2D2D;
+    height:28px;
+    margin-left:0px;
+    padding-right:20px;
+}
+
+.stripbottom {
+    height:30px;
+}
+
+.strip h1 {
+    font-size:1.6em;
+    text-align:left;
+    padding-left:10px;
+    font-weight:normal;
+    
+}
+
+.strip h1, .strip h5 a {
+    color:#D8D8D8;
+    margin-top:0px;
+    padding-top:0px;
+
+}
+
+.stripalignright {
+    float:right;
+}
+
+.stripalignleft {
+    float:left;
+    padding-left:10px;
+    
+}
+
+ul li {
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+
+
+.pagethumbs {
+    margin-top:10px;
+}
+
+.caption {
+    display:block;
+    font-style:italic;
+/*    margin-top:-15px;*/
+    
+}
+
+.shellwidget {
+    margin-top:15px;
+    
+}
+
+img.alignleft {
+    float:left;
+    padding-right:7px;
+    margin-top:0px;
+}
+
+img.alignright {
+    float:right;
+    padding-left:7px;
+    margin-top:0px;
+}
+
+/* Sidebar */
+
+.navlabel {
+    font-size:1.3em;
+    font-weight:bold;
+    margin:0px;
+}
+
+.sidebar {
+    padding-bottom:10px;
+}
+
+.sidebar h5 {
+    font-size:1.1em;
+    margin-top:7px;
+    margin-bottom:0px;
+}
+
+.sidebar p {
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size:1.0em;
+}
