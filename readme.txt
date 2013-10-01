@@ -1,5 +1,6 @@
 DJCC: Personal experimental Django implementation of a possible CalCentral.
-Scot Hacker: shacker at berkeley dot edu
+Scot Hacker: shacker at birdhouse dot org
+
 
 ====================
 SETUP AND WORKFLOW
