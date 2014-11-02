@@ -31,7 +31,7 @@ class Resource(models.Model):
 class Room(Resource):
     """
     A resource subclass to define rooms.
-    """ 
+    """
 
     number = models.CharField("Room Number",max_length=64,blank=True)
     has_screen = models.BooleanField()

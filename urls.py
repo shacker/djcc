@@ -10,16 +10,18 @@ import os, imp
 import utils
 
 # API imports
-from api.api import OfferingsResource, PeopleResource, NewsResource
-cc_api = Api(api_name='cc')
-cc_api.register(OfferingsResource())
-cc_api.register(PeopleResource())
-cc_api.register(NewsResource())
+from news.api.resources import StoryResource
+from courses.api.resources import CourseResource
+
+v1_api = Api(api_name='v1')
+v1_api.register(StoryResource())
+v1_api.register(CourseResource())
+# End API imports
+
 
 
 # Use the Django admin
 admin.autodiscover()
-
 
 urlpatterns = patterns('',
 
@@ -31,28 +33,28 @@ urlpatterns = patterns('',
 
     (r'^profiles/', include('people.urls')),
     (r'^messages/', include('postman.urls')),
-    (r'^dashboard/', include('dashboard.urls')),    
+    (r'^dashboard/', include('dashboard.urls')),
     (r'^news/', include('news.urls')),
     (r'^courses/', include('courses.urls')),
     (r'^programs/', include('courses.program_urls')),
     (r'^worlds/', include('worlds.urls')),
-    (r'^dynlists/', include('dynlists.urls')),    
-    (r'^scheduler/', include('scheduler.urls')),        
+    (r'^dynlists/', include('dynlists.urls')),
+    (r'^scheduler/', include('scheduler.urls')),
     (r'^notifications/', include('notifications.urls')),
-    (r'^library/', include('library.urls')),    
-    (r'^api/', include(cc_api.urls)),
+    (r'^library/', include('library.urls')),
+    # (r'^api/', include(cc_api.urls)),
+    (r'^api/', include(v1_api.urls)),
 
     # RSS output for News items
     (r'^feeds/news/$', LatestNews()),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    
+
     # Misc utils
     url(r'^json_users/$',
         utils.views.json_users,
         name='json_users'),
-
 
     # Static pages
     url(r'^help/$', direct_to_template, {'template': 'static/help.html'},name='help',),

@@ -11,7 +11,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -168,7 +167,7 @@ INSTALLED_APPS = (
     'scheduler',
     'notifications',
     'library',
-    
+
 )
 
 # Postman stuff

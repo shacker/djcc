@@ -1,0 +1,18 @@
+Stories 1-2 (pagination)
+http://127.0.0.1:8000/api/v1/story/set/1;4/?format=json
+
+All stories
+http://127.0.0.1:8000/api/v1/story/?format=json
+
+A single story
+http://127.0.0.1:8000/api/v1/story/1/?format=json
+
+The schema for stories
+http://127.0.0.1:8000/api/v1/story/schema/?format=json
+
+List of all APIs
+http://127.0.0.1:8000/api/v1/?format=json
+
+
+A single course
+http://127.0.0.1:8000/api/v1/course/1/?format=json
